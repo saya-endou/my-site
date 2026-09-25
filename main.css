@@ -1,0 +1,1019 @@
+/* =========================
+   全体
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+
+  font-family:
+    "Noto Sans JP",
+    "Yu Gothic",
+    sans-serif;
+
+  background: #f9dda6;
+
+  color: #4b4141;
+
+  min-height: 100vh;
+
+  padding-bottom: 110px;
+
+}
+
+
+
+/* =========================
+   上部青い部分
+========================= */
+
+.top-header {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 20;
+
+  background: #00B8E6;
+
+  padding: 22px 20px 0;
+
+  border-radius:
+    0 0 48px 48px;
+
+}
+
+
+
+.top-row {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  max-width: 680px;
+
+  margin: 0 auto;
+
+}
+
+
+
+/* 通知・設定 */
+
+.icon-button {
+
+  width: 46px;
+
+  height: 46px;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 30px;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+}
+
+
+
+.notification {
+
+  position: relative;
+
+}
+
+/* =========================
+   検索
+========================= */
+
+.search-box {
+
+  height: 58px;
+
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  background: #72d9e9;
+
+  border:
+    2px solid
+    rgba(255,255,255,0.7);
+
+  border-radius: 35px;
+
+  padding:
+    0 12px 0 17px;
+
+}
+
+
+
+.search-box input {
+
+  flex: 1;
+
+  min-width: 0;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  font-size: 18px;
+
+}
+
+
+
+.search-icon {
+
+  width: 28px;
+
+  height: 28px;
+
+  border:
+    4px solid
+    #0789b0;
+
+  border-radius: 50%;
+
+  position: relative;
+
+}
+
+
+
+.search-icon::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 13px;
+
+  height: 4px;
+
+  background: #0789b0;
+
+  right: -10px;
+
+  bottom: -5px;
+
+  transform: rotate(45deg);
+
+  border-radius: 5px;
+
+}
+
+
+
+.clear-button {
+
+  width: 34px;
+
+  height: 34px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #d8d8d8;
+
+  color: white;
+
+  font-size: 24px;
+
+  cursor: pointer;
+
+}
+
+
+
+/* =========================
+   カテゴリー
+========================= */
+
+.category-nav {
+
+  display: flex;
+
+  justify-content:
+    space-around;
+
+  max-width: 680px;
+
+  margin: 13px auto 0;
+
+}
+
+
+
+.category-nav button {
+
+  position: relative;
+
+  border: none;
+
+  background: transparent;
+
+  color: #087da7;
+
+  font-size: 25px;
+
+  font-weight: bold;
+
+  padding:
+    14px 20px 19px;
+
+  cursor: pointer;
+
+}
+
+
+
+.category-nav button.active {
+
+  color: white;
+
+}
+
+
+
+.category-nav button.active::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 14px;
+
+  right: 14px;
+
+  bottom: 7px;
+
+  height: 4px;
+
+  background: white;
+
+  border-radius: 5px;
+
+}
+
+
+
+/* =========================
+   投稿一覧
+========================= */
+
+.timeline {
+
+  width: min(680px, 100%);
+
+  margin: 0 auto;
+
+  padding:
+    45px 20px 40px;
+
+}
+
+
+
+/* 投稿カード */
+
+.post-card {
+
+  position: relative;
+
+  background: white;
+
+  border-radius:
+    0 40px 40px 40px;
+
+  margin-bottom: 18px;
+
+  padding:
+    35px 44px 22px;
+
+  min-height: 230px;
+
+}
+
+
+
+/* 左上の三角 */
+
+.post-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: -20px;
+
+  width: 22px;
+
+  height: 35px;
+
+  background: white;
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      100% 100%
+    );
+
+}
+
+
+
+/* =========================
+   ユーザー
+========================= */
+
+.post-head {
+
+  display: flex;
+
+  align-items: center;
+
+}
+
+
+
+.avatar {
+
+  width: 72px;
+
+  height: 72px;
+
+  border-radius: 50%;
+
+  background: #858585;
+
+}
+
+
+
+.user-info {
+
+  margin-left: 15px;
+
+}
+
+
+
+.user-info h2 {
+
+  margin: 0;
+
+  color: #111;
+
+  font-size: 25px;
+
+}
+
+
+
+.user-info p {
+
+  margin:
+    5px 0 0;
+
+  color: #777;
+
+  font-size: 20px;
+
+}
+
+
+
+/* 保存 */
+
+.bookmark {
+
+  margin-left: auto;
+
+  border: none;
+
+  background: transparent;
+
+  color: #79cada;
+
+  font-size: 40px;
+
+  cursor: pointer;
+
+}
+
+
+
+.bookmark.saved {
+
+  color: #00B8E6;
+
+}
+
+
+
+/* =========================
+   投稿本文
+========================= */
+
+.post-text {
+
+  margin:
+    30px 0 28px;
+
+  font-size: 24px;
+
+  font-weight: 600;
+
+  line-height: 1.55;
+
+  color: #514747;
+
+}
+
+
+
+.speech-card {
+
+  min-height: 235px;
+
+  padding-top: 48px;
+
+}
+
+
+
+/* =========================
+   卵の画像
+========================= */
+
+.post-image {
+
+  width: 265px;
+
+  height: 195px;
+
+  border-radius: 17px;
+
+  overflow: hidden;
+
+  margin-bottom: 22px;
+
+}
+
+
+
+.egg-image {
+
+  position: relative;
+
+  background:
+
+    linear-gradient(
+      25deg,
+      rgba(175,130,70,.25)
+      0 2px,
+      transparent
+      2px 45px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(175,130,70,.12)
+      0 2px,
+      transparent
+      2px 55px
+    ),
+
+    #d9ae75;
+
+}
+
+
+
+.egg {
+
+  position: absolute;
+
+  width: 90px;
+
+  height: 65px;
+
+  background: white;
+
+  border-radius:
+    60% 45% 55% 45%;
+
+}
+
+
+
+.egg-left {
+
+  left: 65px;
+
+  top: 35px;
+
+  transform:
+    rotate(15deg);
+
+}
+
+
+
+.egg-right {
+
+  left: 112px;
+
+  top: 105px;
+
+  transform:
+    rotate(-10deg);
+
+}
+
+
+
+.yolk {
+
+  position: absolute;
+
+  left: 112px;
+
+  top: 72px;
+
+  width: 50px;
+
+  height: 50px;
+
+  background: #ff9f00;
+
+  border-radius: 50%;
+
+}
+
+
+
+/* =========================
+   リアクション
+========================= */
+
+.reaction-row {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+
+}
+
+
+
+.reaction-row::-webkit-scrollbar {
+
+  display: none;
+
+}
+
+
+
+.reaction-row button {
+
+  border: none;
+
+  background: transparent;
+
+  color: #d3d3d3;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+}
+
+
+
+.reaction-row button.selected {
+
+  color: #00b8df;
+
+}
+
+
+
+.reaction-row .comment {
+
+  width: 39px;
+
+  height: 32px;
+
+  border:
+    3px solid
+    #d5d5d5;
+
+  border-radius: 50%;
+
+  font-size: 0;
+
+  position: relative;
+
+}
+
+
+
+.reaction-row .comment::after {
+
+  content: "";
+
+  position: absolute;
+
+  bottom: -8px;
+
+  left: 7px;
+
+  border-width:
+    6px 6px 0 0;
+
+  border-style: solid;
+
+  border-color:
+    #d5d5d5
+    transparent
+    transparent
+    transparent;
+
+}
+
+
+
+/* =========================
+   下部ナビ
+========================= */
+
+.bottom-nav {
+
+  position: fixed;
+
+  z-index: 50;
+
+  left: 0;
+
+  right: 0;
+
+  bottom: 0;
+
+  height: 106px;
+
+  background: #00B8E6;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-around;
+
+  padding: 0 20px;
+
+}
+
+
+
+.nav-item {
+
+  width: 70px;
+
+  height: 70px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #057da7;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+}
+
+
+
+.nav-item.active {
+
+  color: white;
+
+}
+
+
+
+/* =========================
+   三本線
+========================= */
+
+.list-icon {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+}
+
+
+
+.list-icon i {
+
+  display: block;
+
+  width: 31px;
+
+  height: 7px;
+
+  border-radius: 5px;
+
+  background: currentColor;
+
+  position: relative;
+
+}
+
+
+
+.list-icon i::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: -12px;
+
+  top: 0;
+
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+}
+
+
+
+/* =========================
+   鉛筆ボタン
+========================= */
+
+.post-button {
+
+  width: 90px;
+
+  height: 90px;
+
+  margin-top: -42px;
+
+  border:
+    8px solid white;
+
+  border-radius: 50%;
+
+  background: #00B8E6;
+
+  color: white;
+
+  font-size: 55px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 18px
+    rgba(0,0,0,.18);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+
+.post-button:hover {
+
+  transform: scale(1.05);
+
+}
+
+
+
+/* =========================
+   その他アイコン
+========================= */
+
+.palette-icon {
+
+  font-size: 44px;
+
+}
+
+
+
+.book-icon {
+
+  font-size: 43px;
+
+}
+
+
+
+.person-icon {
+
+  font-size: 46px;
+
+}
+
+
+
+/* =========================
+   スマホ
+========================= */
+
+@media (max-width: 500px) {
+
+  .top-header {
+
+    padding-left: 15px;
+
+    padding-right: 15px;
+
+  }
+
+
+
+  .top-row {
+
+    gap: 9px;
+
+  }
+
+
+
+  .icon-button {
+
+    width: 40px;
+
+    font-size: 28px;
+
+  }
+
+
+
+  .search-box {
+
+    height: 58px;
+
+  }
+
+
+
+  .category-nav button {
+
+    font-size: 23px;
+
+    padding-left: 10px;
+
+    padding-right: 10px;
+
+  }
+
+
+
+  .timeline {
+
+    padding:
+      43px 20px 35px;
+
+  }
+
+
+
+  .post-card {
+
+    padding:
+      35px 44px 20px;
+
+    border-radius:
+      0 38px 38px 38px;
+
+  }
+
+
+
+  .avatar {
+
+    width: 70px;
+
+    height: 70px;
+
+  }
+
+
+
+  .post-text {
+
+    font-size: 22px;
+
+  }
+
+
+
+  .post-image {
+
+    width: 100%;
+
+    max-width: 265px;
+
+  }
+
+
+
+  .reaction-row {
+
+    gap: 18px;
+
+  }
+
+
+
+  .reaction-row button {
+
+    font-size: 15px;
+
+  }
+
+
+
+  .bottom-nav {
+
+    height: 105px;
+
+    padding: 0 10px;
+
+  }
+
+
+
+  .post-button {
+
+    width: 88px;
+
+    height: 88px;
+
+  }
+
+}

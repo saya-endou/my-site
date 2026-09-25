@@ -1,0 +1,415 @@
+/* =========================================
+   全体
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body.register-page {
+
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: #f8dda9;
+
+  font-family: Arial, "Noto Sans JP", sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   吹き出し
+========================================= */
+
+.speech-bubble {
+
+  position: absolute;
+
+  top: 120px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 510px;
+
+  height: 200px;
+
+  background-color: white;
+
+  border-radius: 45px;
+
+  box-shadow:
+    0 8px 10px rgba(0, 0, 0, 0.18);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 3;
+}
+
+
+/* 吹き出しの三角 */
+
+.speech-bubble::after {
+
+  content: "";
+
+  position: absolute;
+
+  bottom: -25px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 0;
+
+  height: 0;
+
+  border-left: 18px solid transparent;
+
+  border-right: 18px solid transparent;
+
+  border-top: 28px solid white;
+}
+
+
+/* 吹き出し文字 */
+
+.speech-bubble p {
+
+  margin: 5px 0;
+
+  color: #09aeeb;
+
+  font-size: 30px;
+
+  font-weight: 900;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   アインシュタイン
+========================================= */
+
+.einstein {
+
+  position: absolute;
+
+  /*
+    アインシュタインの上下位置
+  */
+
+  top: 365px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 300px;
+
+  z-index: 2;
+}
+
+
+/* 画像 */
+
+.einstein img {
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+  /*
+    左右反転
+  */
+
+  transform: scaleX(-1);
+}
+
+
+/* =========================================
+   新規登録フォーム
+========================================= */
+
+.register-box {
+
+  position: absolute;
+
+  top: 640px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+
+  min-height: 1150px;
+
+  /*
+    白い大きな部分
+  */
+
+  background-color: white;
+
+  /*
+    上の角だけ丸くする
+  */
+
+  border-radius: 60px 60px 0 0;
+
+  /*
+    中身を少し下げる
+  */
+
+  padding: 140px 58px 80px;
+
+  z-index: 4;
+}
+
+
+/* =========================================
+   入力欄
+========================================= */
+
+.register-box input {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100px;
+
+  margin-bottom: 30px;
+
+  padding: 0 40px;
+
+  border: none;
+
+  border-radius: 60px;
+
+  background-color: #dfe9ed;
+
+  outline: none;
+
+  font-size: 27px;
+
+  font-weight: bold;
+}
+
+
+/* プレースホルダー */
+
+.register-box input::placeholder {
+
+  color: #aeb5ba;
+}
+
+
+/* 入力中 */
+
+.register-box input:focus {
+
+  box-shadow:
+    0 0 0 4px #09aeeb;
+}
+
+
+/* =========================================
+   Sign up
+========================================= */
+
+#registerButton {
+
+  display: block;
+
+  width: 100%;
+
+  height: 105px;
+
+  margin-top: 10px;
+
+  border: none;
+
+  border-radius: 60px;
+
+  background-color: #09aeeb;
+
+  color: white;
+
+  font-size: 28px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+/* ホバー */
+
+#registerButton:hover {
+
+  transform: scale(1.01);
+}
+
+
+/* =========================================
+   メッセージ
+========================================= */
+
+#message {
+
+  text-align: center;
+
+  color: #09aeeb;
+
+  font-weight: bold;
+}
+
+
+/* =========================================
+   ログインリンク
+========================================= */
+
+.login-link {
+
+  margin-top: 35px;
+
+  text-align: center;
+
+  font-size: 18px;
+}
+
+
+.login-link a {
+
+  color: #09aeeb;
+
+  font-weight: bold;
+
+  text-decoration: none;
+}
+
+
+.login-link a:hover {
+
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   スマホ
+========================================= */
+
+@media (max-width: 600px) {
+
+
+  /* -------------------------
+     吹き出し
+  ------------------------- */
+
+  .speech-bubble {
+
+    top: 100px;
+
+    width: 82%;
+
+    height: 190px;
+
+    border-radius: 40px;
+  }
+
+
+  .speech-bubble p {
+
+    font-size: 24px;
+  }
+
+
+  /* -------------------------
+     アインシュタイン
+  ------------------------- */
+
+  .einstein {
+    top: 350px;
+
+    width: 320px;
+  }
+
+
+  /* -------------------------
+     白いフォーム
+  ------------------------- */
+
+  .register-box {
+
+    top: 600px;
+
+    width: 100%;
+
+    min-height: 1100px;
+
+    padding: 130px 35px 70px;
+
+    border-radius: 50px 50px 0 0;
+  }
+
+
+  /* -------------------------
+     入力欄
+  ------------------------- */
+
+  .register-box input {
+
+    height: 75px;
+
+    margin-bottom: 25px;
+
+    padding: 0 30px;
+
+    font-size: 20px;
+  }
+
+
+  /* -------------------------
+     Sign up
+  ------------------------- */
+
+  #registerButton {
+
+    height: 80px;
+
+    font-size: 23px;
+  }
+
+
+  /* -------------------------
+     ログイン
+  ------------------------- */
+
+  .login-link {
+
+    font-size: 15px;
+  }
+
+}

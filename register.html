@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>新規登録 - Ohps!史</title>
+
+  <link rel="stylesheet" href="register.css">
+</head>
+
+<body class="register-page">
+
+
+  <!-- =========================
+       吹き出し
+  ========================== -->
+
+  <div class="speech-bubble">
+
+    <p>本当に失敗ばかりだよ</p>
+
+  </div>
+
+
+  <!-- =========================
+       アインシュタイン
+       imageフォルダにある画像
+  ========================== -->
+
+  <div class="einstein">
+
+    <img
+      src="image/ansin.png"
+      alt="アインシュタイン"
+    >
+
+  </div>
+
+
+  <!-- =========================
+       新規登録フォーム
+  ========================== -->
+
+  <div class="register-box">
+
+
+    <!-- ニックネーム -->
+
+    <input
+      type="text"
+      id="nickname"
+      placeholder="Nickname"
+    >
+
+
+    <!-- メールアドレス -->
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Email"
+    >
+
+
+    <!-- パスワード -->
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+    >
+
+
+    <!-- 登録 -->
+
+    <button id="registerButton">
+      Sign up
+    </button>
+
+
+    <!-- メッセージ -->
+
+    <p id="message"></p>
+
+
+    <!-- ログインへ -->
+
+    <p class="login-link">
+    <a href="login.html" class="forgot">
+      ログインはこちら
+    </a>
+    </p>
+
+  </div>
+
+
+  <!-- =========================
+       Supabase
+  ========================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="./script.js"></script>
+
+</body>
+</html>

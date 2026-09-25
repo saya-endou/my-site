@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>メイン - Ohps!史</title>
+
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       上の青い部分
+  ========================== -->
+  <header class="top-header">
+
+    <div class="top-row">
+
+      <!-- 通知 -->
+      <button class="icon-button notification">
+        <image src="image/bell-solid-full 1.svg" alt="通知">
+      </button>
+
+      <!-- 検索 -->
+      <div class="search-box">
+
+        <span class="search-icon"></span>
+
+        <input
+          type="text"
+          placeholder=""
+        >
+
+        <button class="clear-button">
+          ×
+        </button>
+
+      </div>
+
+      <!-- 設定 -->
+      <button class="icon-button settings">
+        ⚙
+      </button>
+
+    </div>
+
+
+    <!-- カテゴリー -->
+    <nav class="category-nav">
+
+      <button>
+        偉人
+      </button>
+
+      <button class="active">
+        日常
+      </button>
+
+      <button>
+        恋愛
+      </button>
+
+      <button>
+        仕事
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       投稿一覧
+  ========================== -->
+  <main class="timeline">
+
+
+    <!-- 投稿① -->
+    <article class="post-card">
+
+      <div class="post-head">
+
+        <div class="avatar"></div>
+
+        <div class="user-info">
+
+          <h2>両生類</h2>
+
+          <p>@abc124</p>
+
+        </div>
+
+        <button class="bookmark">
+          ♡
+        </button>
+
+      </div>
+
+
+      <p class="post-text">
+        卵を床に落として割っちゃった、、、、
+      </p>
+
+
+      <!-- 卵の画像 -->
+      <div class="post-image egg-image">
+
+        <div class="egg egg-left"></div>
+
+        <div class="egg egg-right"></div>
+
+        <div class="yolk"></div>
+
+      </div>
+
+
+      <!-- リアクション -->
+      <div class="reaction-row">
+
+        <button class="comment">
+          コメント
+        </button>
+
+        <button>
+          ◁
+        </button>
+
+        <button>
+          あるある
+        </button>
+
+        <button>
+          わかる
+        </button>
+
+        <button>
+          がんばったね
+        </button>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- 投稿② -->
+    <article class="post-card">
+
+      <div class="post-head">
+
+        <div class="avatar"></div>
+
+        <div class="user-info">
+
+          <h2>カカオ豆</h2>
+
+          <p>@abc124</p>
+
+        </div>
+
+        <button class="bookmark">
+          ♡
+        </button>
+
+      </div>
+
+
+      <p class="post-text">
+        帰省する時に財布忘れた...
+      </p>
+
+
+      <div class="reaction-row">
+
+        <button class="comment">
+          コメント
+        </button>
+
+        <button>
+          ◁
+        </button>
+
+        <button>
+          あるある
+        </button>
+
+        <button class="selected">
+          わかる
+        </button>
+
+        <button>
+          がんばったね
+        </button>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- 投稿③ -->
+    <article class="post-card speech-card">
+
+      <p class="post-text">
+        ちょっと気になってた人に
+        社会の窓開いてるって言われた
+      </p>
+
+
+      <div class="reaction-row">
+
+        <button class="comment">
+          コメント
+        </button>
+
+        <button>
+          ◁
+        </button>
+
+        <button class="selected">
+          あるある
+        </button>
+
+        <button>
+          わかる
+        </button>
+
+        <button>
+          がんばったね
+        </button>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- 投稿④ -->
+    <article class="post-card">
+
+      <div class="post-head">
+
+        <div class="avatar"></div>
+
+        <div class="user-info">
+
+          <h2>14 中</h2>
+
+          <p>@abc124</p>
+
+        </div>
+
+        <button class="bookmark">
+          ♡
+        </button>
+
+      </div>
+
+
+      <p class="post-text">
+        またやらかしてしまった……
+      </p>
+
+
+      <div class="reaction-row">
+
+        <button class="comment">
+          コメント
+        </button>
+
+        <button>
+          ◁
+        </button>
+
+        <button>
+          あるある
+        </button>
+
+        <button>
+          わかる
+        </button>
+
+        <button>
+          がんばったね
+        </button>
+
+      </div>
+
+    </article>
+
+  </main>
+
+
+
+  <!-- =========================
+       下のナビゲーション
+  ========================== -->
+  <nav class="bottom-nav">
+
+
+    <!-- 三本線 -->
+    <button
+      class="nav-item active"
+      id="mainNav"
+    >
+
+      <span class="list-icon">
+
+        <i></i>
+        <i></i>
+        <i></i>
+
+      </span>
+
+    </button>
+
+
+
+    <!-- パレット -->
+    <button class="nav-item"
+    onclick="location.href='ijin.html'">
+
+      <span class="palette-icon">
+        <img src="image/palette-solid-full 1.svg" alt="パレット">
+      </span>
+
+    </button>
+
+
+
+    <!-- 鉛筆 -->
+    <button
+      class="post-button"
+      id="postButton"
+    >
+
+      ✎
+
+    </button>
+
+
+
+    <!-- 本 -->
+    <button class="nav-item"
+    onclick="location.href='history.html'">
+
+      <span class="book-icon">
+        <img src="image/Rectangle 12.svg" alt="アインシュタイン">
+      </span>
+      <span class="book-icon">
+        <img src="image/Rectangle 12.svg" alt="アインシュタイン">
+      </span>
+    </button>
+
+
+
+    <!-- プロフィール -->
+    <button
+      class="nav-item"
+      id="profileNav"
+    >
+
+      <span class="person-icon">
+        <img src="image/Union.svg" alt="プロフィール">
+      </span>
+
+    </button>
+
+  </nav>
+
+
+
+  <!-- =========================
+       JavaScript
+  ========================== -->
+  <script>
+
+    /*
+     * カテゴリー切り替え
+     */
+
+    const categoryButtons =
+      document.querySelectorAll(
+        ".category-nav button"
+      );
+
+
+    categoryButtons.forEach((button) => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          categoryButtons.forEach(
+            (item) => {
+
+              item.classList.remove(
+                "active"
+              );
+
+            }
+          );
+
+
+          button.classList.add(
+            "active"
+          );
+
+        }
+      );
+
+    });
+
+
+
+    /*
+     * リアクション
+     */
+
+    const reactionButtons =
+      document.querySelectorAll(
+        ".reaction-row button"
+      );
+
+
+    reactionButtons.forEach((button) => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          if (
+            button.classList.contains(
+              "comment"
+            )
+          ) {
+
+            return;
+
+          }
+
+
+          button.classList.toggle(
+            "selected"
+          );
+
+        }
+      );
+
+    });
+
+
+
+    /*
+     * 保存ボタン
+     */
+
+    const bookmarks =
+      document.querySelectorAll(
+        ".bookmark"
+      );
+
+
+    bookmarks.forEach((button) => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          button.classList.toggle(
+            "saved"
+          );
+
+
+          if (
+            button.classList.contains(
+              "saved"
+            )
+          ) {
+
+            button.textContent = "♥";
+
+          } else {
+
+            button.textContent = "♡";
+
+          }
+
+        }
+      );
+
+    });
+
+
+
+    /*
+     * 鉛筆ボタン
+     */
+
+    document
+      .getElementById("postButton")
+      .addEventListener(
+        "click",
+        () => {
+
+          window.location.href =
+            "post.html";
+
+        }
+      );
+
+
+
+    /*
+     * プロフィール
+     */
+
+    document
+      .getElementById("profileNav")
+      .addEventListener(
+        "click",
+        () => {
+
+          window.location.href =
+            "profile.html";
+
+        }
+      );
+
+  </script>
+
+</body>
+
+</html>

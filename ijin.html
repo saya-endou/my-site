@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>偉人診断</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .screen {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .question {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .answers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .answer-button {
+      padding: 20px;
+      border: 2px solid #ddd;
+      border-radius: 12px;
+      background-color: white;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: left;
+      transition: 0.2s;
+    }
+
+    .answer-button:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
+    .answer-button .label {
+      font-size: 20px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .start-button,
+    .retry-button {
+      display: block;
+      margin: 25px auto 0;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 30px;
+      background-color: #333;
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    .start-button:hover,
+    .retry-button:hover {
+      opacity: 0.8;
+    }
+
+    /* 結果 */
+
+    .result {
+      text-align: center;
+    }
+
+    .result-type {
+      font-size: 18px;
+      color: #777;
+    }
+
+    .result-person {
+      font-size: 35px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .result-description {
+      line-height: 1.8;
+      text-align: left;
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+
+      main {
+        padding: 10px;
+      }
+
+      .screen {
+        padding: 20px;
+      }
+
+      .answers {
+        grid-template-columns: 1fr;
+      }
+
+      .question {
+        font-size: 19px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<header>
+
+  <h1>偉人診断</h1>
+
+</header>
+
+
+<main>
+
+
+  <!-- ============================= -->
+  <!-- スタート画面 -->
+  <!-- ============================= -->
+
+  <section id="start-screen" class="screen">
+
+    <h2>あなたはどの偉人タイプ？</h2>
+
+    <p>
+      いくつかの質問に答えると、
+      あなたの失敗の仕方や考え方に近い偉人を診断します。
+    </p>
+
+    <p>
+      全部で約8問です。
+    </p>
+
+    <button
+      class="start-button"
+      onclick="startDiagnosis()"
+    >
+      診断を始める
+    </button>
+
+  </section>
+
+
+
+  <!-- ============================= -->
+  <!-- 最初の質問 -->
+  <!-- ============================= -->
+
+  <section
+    id="common-screen"
+    class="screen hidden"
+  >
+
+    <div
+      id="common-question"
+      class="question"
+    ></div>
+
+    <div
+      id="common-answers"
+      class="answers"
+    ></div>
+
+  </section>
+
+
+
+  <!-- ============================= -->
+  <!-- 5問目以降 -->
+  <!-- ============================= -->
+
+  <section
+    id="type-screen"
+    class="screen hidden"
+  >
+
+    <div
+      id="type-question"
+      class="question"
+    ></div>
+
+    <div
+      id="type-answers"
+      class="answers"
+    ></div>
+
+  </section>
+
+
+
+  <!-- ============================= -->
+  <!-- 同点決着 -->
+  <!-- ============================= -->
+
+  <section
+    id="tie-screen"
+    class="screen hidden"
+  >
+
+    <div
+      id="tie-question"
+      class="question"
+    ></div>
+
+    <div
+      id="tie-answers"
+      class="answers"
+    ></div>
+
+  </section>
+
+
+
+  <!-- ============================= -->
+  <!-- 診断結果 -->
+  <!-- ============================= -->
+
+  <section
+    id="result-screen"
+    class="screen hidden"
+  >
+
+    <div class="result">
+
+      <p class="result-type">
+        あなたの診断結果
+      </p>
+
+      <!-- A：などは表示せず、タイプ名だけ表示 -->
+
+      <h2 id="result-type"></h2>
+
+      <div
+        id="result-person"
+        class="result-person"
+      ></div>
+
+      <div
+        id="result-description"
+        class="result-description"
+      ></div>
+
+      <button
+        class="retry-button"
+        onclick="location.reload()"
+      >
+        もう一度診断する
+      </button>
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+
+<script>
+
+
+/* =====================================================
+   タイプ・偉人データ
+===================================================== */
+
+
+const types = {
+
+  A: {
+
+    name: "考え込むタイプ",
+
+    description:
+      "失敗すると原因を深く考え、納得できるまで振り返るタイプ。失敗を分析して次に活かそうとします。",
+
+    people: [
+
+      {
+        name: "キュリー",
+        description:
+          "「なんで？」を深く考える研究者タイプ。原因が分かるまで考え続け、失敗から学ぼうとします。"
+      },
+
+      {
+        name: "ベートーヴェン",
+        description:
+          "完成度を高めることを大切にするタイプ。何度も試行錯誤しながら、自分の理想を追求します。"
+      },
+
+      {
+        name: "ニュートン",
+        description:
+          "一人でじっくり考えるタイプ。問題を整理し、自分なりの答えを見つけようとします。"
+      },
+
+      {
+        name: "ダーウィン",
+        description:
+          "失敗しないために準備や確認を重視するタイプ。慎重に考えてから行動します。"
+      }
+
+    ]
+
+  },
+
+
+  B: {
+
+    name: "気にしちゃうタイプ",
+
+    description:
+      "失敗したときに周りの反応や人間関係を気にするタイプ。相手の気持ちを大切にします。",
+
+    people: [
+
+      {
+        name: "ゴッホ",
+        description:
+          "感情の動きが大きく、自分の感じたことを大切にするタイプ。失敗や周囲の反応も強く受け止めます。"
+      },
+
+      {
+        name: "紫式部",
+        description:
+          "人の行動や気持ちをよく観察するタイプ。周囲との関係を考えながら物事を捉えます。"
+      },
+
+      {
+        name: "清少納言",
+        description:
+          "相手や周囲の変化に敏感なタイプ。人とのやり取りから多くのことを感じ取ります。"
+      },
+
+      {
+        name: "ナイチンゲール",
+        description:
+          "周囲の人を気にかけ、責任感を持って行動するタイプ。人のために行動することを大切にします。"
+      }
+
+    ]
+
+  },
+
+
+  C: {
+
+    name: "突き進むタイプ",
+
+    description:
+      "失敗しても立ち止まらず、次の行動へ進もうとするタイプ。挑戦することを大切にします。",
+
+    people: [
+
+      {
+        name: "Cタイプ偉人①",
+        description:
+          "失敗しても行動を続ける挑戦型の人物。"
+      },
+
+      {
+        name: "Cタイプ偉人②",
+        description:
+          "失敗を経験として受け止め、次の挑戦につなげる人物。"
+      },
+
+      {
+        name: "Cタイプ偉人③",
+        description:
+          "まず行動してみることを大切にする人物。"
+      },
+
+      {
+        name: "Cタイプ偉人④",
+        description:
+          "失敗を恐れず、新しいことに挑戦し続ける人物。"
+      }
+
+    ]
+
+  },
+
+
+  D: {
+
+    name: "手放すタイプ",
+
+    description:
+      "失敗をいつまでも引きずらず、気持ちを切り替えて次に進むタイプ。",
+
+    people: [
+
+      {
+        name: "Dタイプ偉人①",
+        description:
+          "失敗しても気持ちを切り替え、次のことに進む人物。"
+      },
+
+      {
+        name: "Dタイプ偉人②",
+        description:
+          "失敗を必要以上に引きずらず、前向きに行動する人物。"
+      },
+
+      {
+        name: "Dタイプ偉人③",
+        description:
+          "失敗も経験の一つとして受け止める人物。"
+      },
+
+      {
+        name: "Dタイプ偉人④",
+        description:
+          "失敗したときも笑って受け止め、次に進む人物。"
+      }
+
+    ]
+
+  }
+
+};
+
+
+
+/* =====================================================
+   最初の4問
+===================================================== */
+
+
+const commonQuestions = [
+
+  {
+    question:
+      "Q1. ミスした瞬間、最初に頭に浮かぶのは？",
+
+    answers: [
+
+      {
+        type: "A",
+        text: "「なんでこうなった？」"
+      },
+
+      {
+        type: "B",
+        text: "「相手どう思ったかな…」"
+      },
+
+      {
+        type: "C",
+        text: "「どう取り返そう？」"
+      },
+
+      {
+        type: "D",
+        text: "「うわ、やっちゃった（笑）」"
+      }
+
+    ]
+
+  },
+
+
+  {
+    question:
+      "Q2. 家に帰ってから一番ありがちなのは？",
+
+    answers: [
+
+      {
+        type: "A",
+        text: "原因を分析する"
+      },
+
+      {
+        type: "B",
+        text: "会話や場面を何度も思い返す"
+      },
+
+      {
+        type: "C",
+        text: "次どうするか考える"
+      },
+
+      {
+        type: "D",
+        text: "誰かに話す、寝て忘れる"
+      }
+
+    ]
+
+  },
+
+
+  {
+    question:
+      "Q3. 友達に失敗を話すなら何を求める？",
+
+    answers: [
+
+      {
+        type: "A",
+        text: "一緒に整理してほしい"
+      },
+
+      {
+        type: "B",
+        text: "「わかる」って言ってほしい"
+      },
+
+      {
+        type: "C",
+        text: "背中を押してほしい"
+      },
+
+      {
+        type: "D",
+        text: "笑い飛ばしてほしい"
+      }
+
+    ]
+
+  },
+
+
+  {
+    question:
+      "Q4. 失敗した時、一番イヤなのは？",
+
+    answers: [
+
+      {
+        type: "A",
+        text: "同じ失敗を繰り返すこと"
+      },
+
+      {
+        type: "B",
+        text: "人に悪く思われること"
+      },
+
+      {
+        type: "C",
+        text: "負けたまま終わること"
+      },
+
+      {
+        type: "D",
+        text: "ずっと引きずること"
+      }
+
+    ]
+
+  }
+
+];
+
+
+
+/* =====================================================
+   タイプごとの追加質問
+===================================================== */
+
+
+const additionalQuestions = {
+
+
+  A: [
+
+    {
+      question:
+        "Q5. 失敗後について一番近いのは？",
+
+      answers: [
+
+        "原因を徹底的に調べる",
+        "「もっとできたはず」と自分を責める",
+        "誰にも言わず自分で解決する",
+        "次に失敗しないよう確認を増やす"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q6. 次回に向けて一番したいのは？",
+
+      answers: [
+
+        "事実やデータを集める",
+        "完成度をもっと上げる",
+        "一人でじっくり考える",
+        "リスクを回避して進む"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q7. 一番しっくりくるのは？",
+
+      answers: [
+
+        "「納得するまで知りたい」",
+        "「ちゃんとやりたい」",
+        "「自分でなんとかしたい」",
+        "「失敗する前に防ぎたい」"
+
+      ]
+    }
+
+  ],
+
+
+  B: [
+
+    {
+      question:
+        "Q5. その後、一番苦しいのは？",
+
+      answers: [
+
+        "感情そのものがしんどい",
+        "自分の言動が気になる",
+        "相手の反応が気になる",
+        "迷惑をかけたことが気になる"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q6. 夜、頭の中で起きているのは？",
+
+      answers: [
+
+        "「もう無理！」と感情が大きくなる",
+        "同じ場面を何度も再生する",
+        "「相手どう思ったかな？」と考える",
+        "「私がもっとやれば…」と責任を感じる"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q7. 友達に言いたいのは？",
+
+      answers: [
+
+        "「聞いて、今日ほんとに大変だった」",
+        "「あの言い方まずかったかな」",
+        "「嫌われてないかな？」",
+        "「みんなに申し訳ない…」"
+
+      ]
+    }
+
+  ],
+
+
+  C: [
+
+    {
+      question:
+        "Q5. 失敗した直後、一番近い行動は？",
+
+      answers: [
+
+        "すぐに次の方法を試す",
+        "別のやり方を考える",
+        "とにかく行動する",
+        "誰かに相談して再挑戦する"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q6. 次に向けて一番したいことは？",
+
+      answers: [
+
+        "新しい方法を試す",
+        "もっと大胆に挑戦する",
+        "まず動いてみる",
+        "仲間を集めて挑戦する"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q7. 一番しっくりくる言葉は？",
+
+      answers: [
+
+        "「まずやってみよう」",
+        "「やらないと始まらない」",
+        "「失敗してから考えよう」",
+        "「もう一回挑戦しよう」"
+
+      ]
+    }
+
+  ],
+
+
+  D: [
+
+    {
+      question:
+        "Q5. 失敗した直後、一番近いのは？",
+
+      answers: [
+
+        "まあ仕方ない",
+        "次に行こうと思う",
+        "誰かに話してスッキリする",
+        "笑って済ませる"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q6. 次に向けて一番したいことは？",
+
+      answers: [
+
+        "気持ちを切り替える",
+        "別のことを始める",
+        "友達と話す",
+        "とりあえず寝る"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q7. 一番しっくりくる言葉は？",
+
+      answers: [
+
+        "「終わったことだし」",
+        "「次いこう」",
+        "「まあそんなこともある」",
+        "「笑い話にしよう」"
+
+      ]
+    }
+
+  ]
+
+};
+
+
+
+/* =====================================================
+   最終質問
+===================================================== */
+
+
+const tieQuestions = [
+
+  {
+    question:
+      "Q8. 今のあなたに一番近い言葉は？",
+
+    answers: [
+
+      {
+        text: "失敗した理由を理解して、次に活かしたい",
+        type: "A"
+      },
+
+      {
+        text: "失敗しても気持ちを切り替えて前に進みたい",
+        type: "D"
+      }
+
+    ]
+
+  }
+
+];
+
+
+
+/* =====================================================
+   診断用の変数
+===================================================== */
+
+
+let commonIndex = 0;
+
+let additionalIndex = 0;
+
+let selectedType = null;
+
+
+let typeScores = {
+
+  A: 0,
+  B: 0,
+  C: 0,
+  D: 0
+
+};
+
+
+let personScores = {};
+
+
+
+/* =====================================================
+   診断スタート
+===================================================== */
+
+
+function startDiagnosis() {
+
+  document
+    .getElementById("start-screen")
+    .classList.add("hidden");
+
+  document
+    .getElementById("common-screen")
+    .classList.remove("hidden");
+
+  commonIndex = 0;
+
+  showCommonQuestion();
+
+}
+
+
+
+/* =====================================================
+   最初の質問を表示
+===================================================== */
+
+
+function showCommonQuestion() {
+
+  const question =
+    commonQuestions[commonIndex];
+
+
+  document
+    .getElementById("common-question")
+    .textContent =
+    question.question;
+
+
+  const answers =
+    document.getElementById(
+      "common-answers"
+    );
+
+
+  answers.innerHTML = "";
+
+
+  question.answers.forEach(
+    function(answer) {
+
+      const button =
+        document.createElement("button");
+
+
+      button.className =
+        "answer-button";
+
+
+      button.innerHTML =
+        `
+          <span class="label">
+            ${answer.type}
+          </span>
+
+          ${answer.text}
+        `;
+
+
+      button.onclick =
+        function() {
+
+          selectCommonAnswer(
+            answer.type
+          );
+
+        };
+
+
+      answers.appendChild(button);
+
+    }
+  );
+
+}
+
+
+
+/* =====================================================
+   最初の質問への回答
+===================================================== */
+
+
+function selectCommonAnswer(type) {
+
+  typeScores[type]++;
+
+  commonIndex++;
+
+
+  if (
+    commonIndex <
+    commonQuestions.length
+  ) {
+
+    showCommonQuestion();
+
+  }
+
+  else {
+
+    decideType();
+
+  }
+
+}
+
+
+
+/* =====================================================
+   A〜Dのタイプを決定
+===================================================== */
+
+
+function decideType() {
+
+  const max =
+    Math.max(
+      typeScores.A,
+      typeScores.B,
+      typeScores.C,
+      typeScores.D
+    );
+
+
+  const topTypes =
+    Object.keys(typeScores)
+      .filter(
+        function(type) {
+
+          return typeScores[type] === max;
+
+        }
+      );
+
+
+  if (topTypes.length > 1) {
+
+    selectedType = topTypes[0];
+
+  }
+
+  else {
+
+    selectedType = topTypes[0];
+
+  }
+
+
+  startAdditionalQuestions();
+
+}
+
+
+
+/* =====================================================
+   追加質問を開始
+===================================================== */
+
+
+function startAdditionalQuestions() {
+
+  document
+    .getElementById("common-screen")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("type-screen")
+    .classList.remove("hidden");
+
+
+  additionalIndex = 0;
+
+
+  personScores = {};
+
+
+  types[selectedType].people.forEach(
+    function(person) {
+
+      personScores[person.name] = 0;
+
+    }
+  );
+
+
+  showAdditionalQuestion();
+
+}
+
+
+
+/* =====================================================
+   追加質問を表示
+===================================================== */
+
+
+function showAdditionalQuestion() {
+
+  const question =
+    additionalQuestions[selectedType]
+    [additionalIndex];
+
+
+  document
+    .getElementById("type-question")
+    .textContent =
+    question.question;
+
+
+  const answers =
+    document.getElementById(
+      "type-answers"
+    );
+
+
+  answers.innerHTML = "";
+
+
+  question.answers.forEach(
+    function(answer, index) {
+
+      const button =
+        document.createElement("button");
+
+
+      button.className =
+        "answer-button";
+
+
+      /*
+        ここでは偉人の名前を表示しない
+      */
+
+      button.textContent =
+        answer;
+
+
+      const person =
+        types[selectedType]
+        .people[index];
+
+
+      button.onclick =
+        function() {
+
+          selectAdditionalAnswer(
+            person.name
+          );
+
+        };
+
+
+      answers.appendChild(button);
+
+    }
+  );
+
+}
+
+
+
+/* =====================================================
+   追加質問への回答
+===================================================== */
+
+
+function selectAdditionalAnswer(
+  personName
+) {
+
+  personScores[personName]++;
+
+  additionalIndex++;
+
+
+  if (
+    additionalIndex < 3
+  ) {
+
+    showAdditionalQuestion();
+
+  }
+
+  else {
+
+    decidePerson();
+
+  }
+
+}
+
+
+
+/* =====================================================
+   偉人を決定
+===================================================== */
+
+
+function decidePerson() {
+
+  const scores =
+    Object.entries(
+      personScores
+    );
+
+
+  const max =
+    Math.max(
+      ...scores.map(
+        function(item) {
+
+          return item[1];
+
+        }
+      )
+    );
+
+
+  const winners =
+    scores.filter(
+      function(item) {
+
+        return item[1] === max;
+
+      }
+    );
+
+
+  if (winners.length > 1) {
+
+    showTieQuestion(
+      winners
+    );
+
+  }
+
+  else {
+
+    showResult(
+      winners[0][0]
+    );
+
+  }
+
+}
+
+
+
+/* =====================================================
+   同点だった場合
+===================================================== */
+
+
+function showTieQuestion(winners) {
+
+  document
+    .getElementById("type-screen")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("tie-screen")
+    .classList.remove("hidden");
+
+
+  const question =
+    tieQuestions[0];
+
+
+  document
+    .getElementById("tie-question")
+    .textContent =
+    question.question;
+
+
+  const answers =
+    document.getElementById(
+      "tie-answers"
+    );
+
+
+  answers.innerHTML = "";
+
+
+  /*
+    同点の場合も偉人の名前は表示しない
+  */
+
+  winners.forEach(
+    function(winner, index) {
+
+      const personName =
+        winner[0];
+
+
+      const button =
+        document.createElement("button");
+
+
+      button.className =
+        "answer-button";
+
+
+      button.textContent =
+        index === 0
+          ? "この失敗を理解して次に活かしたい"
+          : "失敗しても切り替えて前に進みたい";
+
+
+      button.onclick =
+        function() {
+
+          showResult(
+            personName
+          );
+
+        };
+
+
+      answers.appendChild(button);
+
+    }
+  );
+
+}
+
+
+
+/* =====================================================
+   診断結果を表示
+===================================================== */
+
+
+function showResult(personName) {
+
+  document
+    .getElementById("type-screen")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("tie-screen")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("result-screen")
+    .classList.remove("hidden");
+
+
+  const person =
+    types[selectedType]
+    .people
+    .find(
+      function(person) {
+
+        return person.name === personName;
+
+      }
+    );
+
+
+  /*
+    A：などは表示せず、
+    タイプ名だけ表示
+  */
+
+  document
+    .getElementById("result-type")
+    .textContent =
+    types[selectedType].name;
+
+
+  /*
+    診断された偉人
+  */
+
+  document
+    .getElementById("result-person")
+    .textContent =
+    person.name;
+
+
+  /*
+    結果説明
+  */
+
+  document
+    .getElementById("result-description")
+    .innerHTML =
+    `
+      <h3>あなたの失敗タイプ</h3>
+
+      <p>
+        ${types[selectedType].description}
+      </p>
+
+      <h3>
+        ${person.name}タイプ
+      </h3>
+
+      <p>
+        ${person.description}
+      </p>
+
+      <p>
+        あなたの失敗の仕方や、
+        失敗したときの考え方は、
+        この偉人タイプに近いかもしれません。
+      </p>
+    `;
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

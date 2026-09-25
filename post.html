@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>投稿 - Ohps!史</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>投稿する</h1>
+  </header>
+
+  <main class="post-create">
+
+    <h2>やらかしを投稿</h2>
+
+    <label for="postTitle">タイトル</label>
+
+    <input
+      type="text"
+      id="postTitle"
+      placeholder="例：レポートの提出を忘れた"
+    >
+
+    <label for="postText">内容</label>
+
+    <textarea
+      id="postText"
+      placeholder="何があったか書いてみよう..."
+    ></textarea>
+
+    <label for="postType">公開設定</label>
+
+    <select id="postType">
+      <option value="public">みんなに公開</option>
+      <option value="limited">限定公開</option>
+    </select>
+
+    <button id="submitPost">
+      投稿する
+    </button>
+
+    <button id="cancelPost">
+      キャンセル
+    </button>
+
+    <p id="postMessage"></p>
+
+  </main>
+
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- 自分のJavaScript -->
+  <script src="./script.js"></script>
+
+
+  <script>
+    // キャンセルボタン
+    const cancelPost = document.getElementById("cancelPost");
+
+    cancelPost.addEventListener("click", () => {
+      window.location.href = "profile.html";
+    });
+  </script>
+
+</body>
+</html>

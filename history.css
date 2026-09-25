@@ -1,0 +1,620 @@
+/* =========================
+   全体
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+
+  background: #f8dda8;
+
+  font-family:
+    "Times New Roman",
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+
+  color: #241d1d;
+
+  padding-bottom: 120px;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================
+   上部バー
+========================= */
+
+.top-header {
+
+  height: 246px;
+
+  background: #49d9eb;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+/* =========================
+   MY伝記
+========================= */
+
+.my-biography {
+  color: #352D2D;
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: 12px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   メイン
+========================= */
+
+.history-main {
+
+  position: relative;
+
+  min-height: 1320px;
+
+  padding-top: 70px;
+
+}
+
+
+/* =========================
+   タイトル
+========================= */
+
+.title-area {
+
+  position: relative;
+
+  padding-left: 50px;
+
+  padding-right: 45px;
+
+}
+
+
+/* 全力疾走 */
+
+.title-area h1 {
+
+  margin: 0;
+
+  font-family:
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    sans-serif;
+
+  font-size: 65px;
+
+  font-weight: 900;
+
+  letter-spacing: -5px;
+
+}
+
+
+/* ハリキンガール */
+
+.title-area h2 {
+
+  margin: 25px 0 50px;
+
+  font-family:
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    sans-serif;
+
+  font-size: 61px;
+
+  font-weight: 900;
+
+  letter-spacing: -5px;
+
+}
+
+
+/* =========================
+   縦文字
+========================= */
+
+.vertical-text {
+
+  position: absolute;
+
+  right: 45px;
+
+  top: 105px;
+
+  color: white;
+
+  font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+
+  font-size: 58px;
+
+  line-height: 1.15;
+
+  text-align: center;
+
+}
+
+
+/* =========================
+   説明
+========================= */
+
+.description {
+
+  margin: 0 0 30px;
+
+  font-size: 30px;
+
+  line-height: 1.8;
+
+  font-weight: bold;
+
+  max-width: 720px;
+
+}
+
+
+/* =========================
+   やらかし年表
+========================= */
+
+.mistake-box {
+  position: relative;
+
+  width: calc(100% - 110px);
+
+  margin-left: 55px;
+  margin-top: 50px;
+
+  padding: 45px 40px 45px 40px;
+
+  background: #fffdfb;
+
+  border: 4px solid #48d8ec;
+
+  border-radius: 38px;
+
+  box-shadow:
+    0 5px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   縦の線
+========================= */
+
+.timeline-line {
+  position: absolute;
+
+  left: 45px;
+
+  top: 45px;
+  bottom: 45px;
+
+  width: 3px;
+
+  background: #48d8ec;
+}
+
+
+/* =========================
+   それぞれの出来事
+========================= */
+
+.mistake {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  min-height: 95px;
+
+  margin-bottom: 20px;
+
+  padding-left: 75px;
+}
+
+
+/* 最後だけ余白なし */
+
+.mistake:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   丸
+========================= */
+
+.timeline-dot {
+  position: absolute;
+
+  left: -11px;
+  top: 3px;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  background: #48d8ec;
+
+  z-index: 2;
+}
+
+
+/* =========================
+   文章
+========================= */
+
+.mistake p {
+
+  margin: 0;
+
+  padding: 0 0 8px;
+
+  font-size: 25px;
+
+  line-height: 1.5;
+
+  font-weight: bold;
+
+  border-bottom: 2px solid #48d8ec;
+
+  max-width: 90%;
+}
+
+
+/* =========================
+   以前の斜め線を無効化
+========================= */
+
+.mistake::after {
+  content: none;
+}
+
+
+/* =========================
+   各項目
+========================= */
+
+.mistake-1,
+.mistake-2,
+.mistake-3,
+.mistake-4,
+.mistake-5 {
+  top: auto;
+  left: auto;
+}
+
+
+/* =========================
+   アインシュタイン
+========================= */
+
+.einstein {
+
+  position: absolute;
+
+  right: -5px;
+
+  bottom: -15px;
+
+  width: 360px;
+
+  z-index: 5;
+
+  pointer-events: none;
+
+}
+
+
+.einstein img {
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+}
+
+
+/* =========================
+   下部ナビゲーション
+========================= */
+
+.bottom-nav {
+  position: fixed;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 106px;
+
+  background: #08b7dc;
+
+  display: flex;
+
+  justify-content: space-around;
+
+  align-items: center;
+
+  z-index: 100;
+
+  padding: 0 20px;
+}
+
+.nav-item {
+  width: 70px;
+
+  height: 70px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #057da7;
+
+  font-size: 38px;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================
+   三本線
+========================= */
+
+.list-icon {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.list-icon i {
+  display: block;
+
+  width: 31px;
+
+  height: 7px;
+
+  border-radius: 5px;
+
+  background: currentColor;
+
+  position: relative;
+}
+
+.list-icon i::before {
+  content: "";
+
+  position: absolute;
+
+  left: -12px;
+
+  top: 0;
+
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+}
+
+
+/* =========================
+   パレット
+========================= */
+
+.palette-icon {
+  img {
+  font-size: 43px;
+}
+}
+
+
+/* =========================
+   本
+========================= */
+
+.book-icon {
+  filter: brightness(0) invert(1);
+}
+
+
+/* =========================
+   プロフィール
+========================= */
+
+.person-icon {
+  font-size: 43px;
+}
+
+
+/* =========================
+   中央の投稿ボタン
+========================= */
+
+.post-button {
+  width: 92px;
+
+  height: 92px;
+
+  margin-top: -42px;
+
+  border:
+    8px solid white;
+
+  border-radius: 50%;
+
+  background: #08b7dc;
+
+  color: white;
+
+  font-size: 55px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 18px
+    rgba(0, 0, 0, 0.18);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.post-button:hover {
+  transform: scale(1.05);
+}
+
+
+/* =========================
+   スマホ対応
+========================= */
+
+@media (max-width: 600px) {
+
+  .top-header {
+    height: 180px;
+  }
+
+  /* MY伝記 */
+  .my-biography {
+    font-size: 30px;
+    letter-spacing: 7px;
+  }
+
+  .history-main {
+    padding-top: 45px;
+    min-height: 1100px;
+  }
+
+  .title-area {
+    padding-left: 32px;
+    padding-right: 25px;
+  }
+
+  .title-area h1 {
+    font-size: 43px;
+    letter-spacing: -3px;
+  }
+
+  .title-area h2 {
+    font-size: 42px;
+    letter-spacing: -3px;
+    margin-top: 15px;
+    margin-bottom: 35px;
+  }
+
+  .description {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+    letter-spacing: 1px;
+  }
+
+  .vertical-text {
+    right: 22px;
+    top: 80px;
+    font-size: 42px;
+  }
+
+  .mistake-box {
+    width: calc(100% - 60px);
+    margin-left: 30px;
+    min-height: 500px;
+    border-radius: 30px;
+  }
+
+  .timeline-line {
+    left: 32px;
+  }
+
+  .mistake {
+    left: 32px;
+  }
+
+  .mistake p {
+    margin-left: 55px;
+    font-size: 17px;
+  }
+
+  .mistake-1 {
+    top: 30px;
+  }
+
+  .mistake-2 {
+    top: 125px;
+  }
+
+  .mistake-3 {
+    top: 255px;
+  }
+
+  .mistake-4 {
+    top: 325px;
+  }
+
+  .mistake-5 {
+    top: 410px;
+  }
+
+  .einstein {
+    width: 260px;
+    bottom: 5px;
+  }
+
+  .bottom-nav {
+    height: 100px;
+  }
+
+  .post-button {
+    width: 85px;
+    height: 85px;
+    font-size: 48px;
+    margin-top: -40px;
+  }
+
+}

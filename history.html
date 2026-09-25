@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>やらかし記録</title>
+
+  <link rel="stylesheet" href="history.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       上部バー
+  ========================== -->
+
+    <header class="top-header">
+    <div class="my-biography">MY伝記</div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    </header>
+
+
+  <!-- =========================
+       メイン
+  ========================== -->
+
+  <main class="history-main">
+
+    <!-- タイトル -->
+
+    <section class="title-area">
+
+      <h1>
+        全力疾走
+      </h1>
+
+      <h2>
+        ハリキンガール
+      </h2>
+
+      <div class="vertical-text">
+        酔<br>
+        程<br>
+        転<br>
+        倒
+      </div>
+
+      <p class="description">
+        新歓で先輩を同級生だと思ってタメ口
+      </p>
+
+      <p class="description">
+        手を振り返したら<br>
+        自分ではなく後ろの人だった
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         やらかしタイムライン
+    ========================== -->
+
+    <section class="mistake-box">
+
+      <div class="timeline-line"></div>
+
+
+      <!-- 1 -->
+
+      <div class="mistake mistake-1">
+
+        <span class="timeline-dot"></span>
+
+        <p>
+          ビールサーバーを洗浄中に噴水化させる
+        </p>
+
+      </div>
+
+
+      <!-- 2 -->
+
+      <div class="mistake mistake-2">
+
+        <span class="timeline-dot"></span>
+
+        <p>
+          バイト先の店長のことを<br>
+          お母さんと呼んでしまう！
+        </p>
+
+      </div>
+
+
+      <!-- 3 -->
+
+      <div class="mistake mistake-3">
+
+        <span class="timeline-dot"></span>
+
+        <p>
+          財布を旅行中に落とす
+        </p>
+
+      </div>
+
+
+      <!-- 4 -->
+
+      <div class="mistake mistake-4">
+
+        <span class="timeline-dot"></span>
+
+        <p>
+          男子トイレと女子トイレを間違える
+        </p>
+
+      </div>
+
+
+      <!-- 5 -->
+
+      <div class="mistake mistake-5">
+
+        <span class="timeline-dot"></span>
+
+        <p>
+          スマホを盗まれる
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         アインシュタイン
+    ========================== -->
+
+    <div class="einstein">
+
+      <!-- ここに画像を入れる -->
+      <img src="image/einstein.png" alt="アインシュタイン">
+
+    </div>
+
+  </main>
+
+
+  <!-- ================================= -->
+  <!-- 下部ナビゲーション -->
+  <!-- ================================= -->
+
+  <nav class="bottom-nav">
+
+    <button
+      class="nav-item active"
+      id="mainNav"
+      onclick="location.href='main.html'"
+    >
+
+      <span class="list-icon">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+
+    </button>
+
+
+    <button class="nav-item"
+    onclick="location.href='ijin.html'">
+
+      <span class="palette-icon">
+        <img src="image/palette-solid-full 1.svg" alt="パレット">
+      </span>
+
+    </button>
+
+
+    <button
+      class="post-button"
+      onclick="location.href='post.html'"
+    >
+      ✎
+    </button>
+
+
+
+    <!-- 本 -->
+    <button class="nav-item">
+
+      <span class="book-icon">
+        <img src="image/Rectangle 12.svg" alt="アインシュタイン">
+      </span>
+      <span class="book-icon">
+        <img src="image/Rectangle 12.svg" alt="アインシュタイン">
+      </span>
+    </button>
+
+
+
+    <!-- プロフィール -->
+    <button
+      class="nav-item"
+      id="profileNav"
+    >
+
+      <span class="person-icon">
+        <img src="image/Union.svg" alt="プロフィール">
+      </span>
+
+    </button>
+
+  </nav>
+
+
+  <!-- =========================
+       JavaScript
+  ========================== -->
+
+  <script>
+
+    // メイン画面
+    const mainNav =
+      document.getElementById("mainNav");
+
+    if (mainNav) {
+
+      mainNav.addEventListener("click", () => {
+
+        window.location.href = "main.html";
+
+      });
+
+    }
+
+
+    // 投稿画面
+    const postButton =
+      document.getElementById("postButton");
+
+    if (postButton) {
+
+      postButton.addEventListener("click", () => {
+
+        window.location.href = "post.html";
+
+      });
+
+    }
+
+
+    // プロフィール画面
+    const profileNav =
+      document.getElementById("profileNav");
+
+    if (profileNav) {
+
+      profileNav.addEventListener("click", () => {
+
+        window.location.href = "profile.html";
+
+      });
+
+    }
+
+  </script>
+
+</body>
+
+</html>

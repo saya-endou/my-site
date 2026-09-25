@@ -1,0 +1,388 @@
+/* =========================================
+   全体
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body.login-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: #f8dda9;
+
+  font-family: Arial, "Noto Sans JP", sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   吹き出し
+========================================= */
+
+.speech-bubble {
+  position: absolute;
+
+  top: 150px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 510px;
+  height: 200px;
+
+  background-color: white;
+
+  border-radius: 45px;
+
+  box-shadow:
+    0 8px 10px rgba(0, 0, 0, 0.18);
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 3;
+}
+
+
+/* 吹き出しの三角 */
+
+.speech-bubble::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 0;
+  height: 0;
+
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 28px solid white;
+}
+
+
+/* 吹き出しの文字 */
+
+.speech-bubble p {
+  margin: 5px 0;
+
+  color: #09aeeb;
+
+  font-size: 30px;
+
+  font-weight: 900;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   アインシュタイン
+========================================= */
+
+.einstein {
+  position: absolute;
+
+  /*
+    アインシュタインの位置
+    数字を小さくすると上に移動
+  */
+  top: 395px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 300px;
+
+  z-index: 2;
+}
+
+
+/* アインシュタイン画像 */
+
+.einstein img {
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+  /*
+    左右反転
+  */
+  transform: scaleX(-1);
+}
+
+
+/* =========================================
+   白いログインフォーム
+========================================= */
+
+.login-box {
+  position: absolute;
+
+  /*
+    白い部分の開始位置
+  */
+  top: 668px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+
+  /*
+    画面下まで白くする
+  */
+  min-height: 1100px;
+
+  /*
+    ★ 白い背景
+  */
+  background-color: white;
+
+  /*
+    上だけ丸くする
+  */
+  border-radius: 60px 60px 0 0;
+
+  /*
+    入力欄を上から少し下げる
+  */
+  padding: 150px 58px 80px;
+
+  /*
+    アインシュタインより前
+  */
+  z-index: 4;
+}
+
+
+/* =========================================
+   Email / Password
+========================================= */
+
+.login-box input {
+  display: block;
+
+  width: 100%;
+
+  height: 112px;
+
+  margin-bottom: 42px;
+
+  padding: 0 42px;
+
+  border: none;
+
+  border-radius: 60px;
+
+  background-color: #dfe9ed;
+
+  outline: none;
+
+  font-size: 28px;
+
+  font-weight: bold;
+}
+
+
+/* プレースホルダー */
+
+.login-box input::placeholder {
+  color: #aeb5ba;
+}
+
+
+/* 入力中 */
+
+.login-box input:focus {
+  box-shadow:
+    0 0 0 4px #09aeeb;
+}
+
+
+/* =========================================
+   Sign in ボタン
+========================================= */
+
+#loginButton {
+  display: block;
+
+  width: 100%;
+
+  height: 112px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 60px;
+
+  background-color: #09aeeb;
+
+  color: white;
+
+  font-size: 28px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+/* ホバー */
+
+#loginButton:hover {
+  transform: scale(1.01);
+}
+
+
+/* =========================================
+   Supabaseメッセージ
+========================================= */
+
+#message {
+  text-align: center;
+
+  color: #09aeeb;
+
+  font-weight: bold;
+}
+
+
+/* =========================================
+   パスワードを忘れた
+========================================= */
+
+.forgot {
+  display: block;
+
+  margin-top: 45px;
+
+  text-align: center;
+
+  color: #09aeeb;
+
+  font-size: 25px;
+
+  font-weight: bold;
+
+  text-decoration: none;
+}
+
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   スマホ
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* -------------------------
+     吹き出し
+  ------------------------- */
+
+  .speech-bubble {
+    top: 150px;
+
+    width: 80%;
+
+    height: 198px;
+
+    border-radius: 45px;
+  }
+
+
+  .speech-bubble p {
+    font-size: 25px;
+  }
+
+
+  /* -------------------------
+     アインシュタイン
+  ------------------------- */
+
+  .einstein {
+    top: 420px;
+
+    width: 320px;
+  }
+
+
+  /* -------------------------
+     白いフォーム
+  ------------------------- */
+
+  .login-box {
+    top: 668px;
+
+    width: 100%;
+
+    min-height: 1100px;
+
+    padding: 150px 58px 80px;
+
+    border-radius: 60px 60px 0 0;
+  }
+
+
+  /* -------------------------
+     入力欄
+  ------------------------- */
+
+  .login-box input {
+    height: 112px;
+
+    margin-bottom: 42px;
+
+    padding: 0 42px;
+
+    font-size: 25px;
+  }
+
+
+  /* -------------------------
+     Sign in
+  ------------------------- */
+
+  #loginButton {
+    height: 112px;
+
+    font-size: 26px;
+  }
+
+
+  /* -------------------------
+     パスワード
+  ------------------------- */
+
+  .forgot {
+    font-size: 22px;
+  }
+
+}

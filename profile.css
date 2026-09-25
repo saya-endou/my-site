@@ -1,0 +1,792 @@
+/* =========================
+   全体
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  background: #f8dfaa;
+
+  font-family:
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    Meiryo,
+    sans-serif;
+
+  color: #222;
+
+  padding-bottom: 110px;
+}
+
+
+/* =========================
+   プロフィール上部
+========================= */
+
+.profile-header {
+  height: 245px;
+
+  background: #08b7dc;
+
+  position: relative;
+
+  border-radius: 0 0 48px 48px;
+}
+
+.username-top {
+  position: absolute;
+
+  bottom: 55px;
+
+  width: 100%;
+
+  text-align: center;
+
+  font-size: 28px;
+
+  font-weight: bold;
+
+  color: white;
+}
+
+
+/* =========================
+   プロフィール情報
+========================= */
+
+.profile-info {
+  position: relative;
+
+  padding: 25px 30px 20px;
+
+  min-height: 200px;
+}
+
+
+/* プロフィール画像 */
+
+.profile-image {
+  position: absolute;
+
+  left: 60px;
+  top: -35px;
+
+  width: 195px;
+  height: 195px;
+
+  border-radius: 50%;
+
+  background: #f7dca7;
+
+  border: 10px solid white;
+
+  overflow: hidden;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================
+   名前
+========================= */
+
+.profile-text {
+  margin-left: 235px;
+
+  padding-top: 5px;
+}
+
+.profile-text h1 {
+  margin: 0;
+
+  font-size: 30px;
+}
+
+.post-count {
+  margin-top: 12px;
+
+  font-size: 20px;
+
+  color: #999;
+}
+
+
+/* =========================
+   プロフィールボタン
+========================= */
+
+.profile-buttons {
+  display: flex;
+
+  gap: 15px;
+
+  padding: 0 70px 25px;
+}
+
+.profile-buttons button {
+  flex: 1;
+
+  border: none;
+
+  border-radius: 35px;
+
+  background: white;
+
+  padding: 18px;
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.profile-buttons button:hover {
+  background: #eeeeee;
+}
+
+
+/* =========================
+   タブ
+========================= */
+
+.tabs {
+  display: flex;
+
+  height: 80px;
+
+  border-bottom: 1px solid #333;
+}
+
+.tab {
+  flex: 1;
+
+  border: none;
+
+  background: transparent;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 19px;
+
+  font-weight: bold;
+
+  color: white;
+
+  cursor: pointer;
+      img {
+  filter: brightness(0) invert(1);
+}
+}
+
+.tab span {
+  font-size: 30px;
+}
+
+.tab.active {
+  color: #555;
+
+  border-bottom: 5px solid #555;
+    img {
+      filter: brightness(0) saturate(100%)
+              invert(20%)
+              sepia(30%)
+              saturate(1500%)
+              hue-rotate(5deg)
+              brightness(85%)
+              contrast(105%);
+    }
+}
+
+
+/* =========================
+   投稿一覧
+========================= */
+
+.posts {
+  padding: 40px 7%;
+}
+
+.post {
+  position: relative;
+
+  background: white;
+
+  border-radius: 0 45px 45px 45px;
+
+  min-height: 420px;
+
+  margin-bottom: 25px;
+
+  padding: 35px 45px;
+}
+
+
+/* =========================
+   投稿者
+========================= */
+
+.post-user {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.post-icon {
+  width: 60px;
+  height: 60px;
+
+  border-radius: 50%;
+
+  background: #888;
+}
+
+.post-name {
+  font-size: 22px;
+
+  font-weight: bold;
+}
+
+.post-id {
+  margin-top: 3px;
+
+  font-size: 18px;
+
+  color: #777;
+}
+
+
+/* =========================
+   ブックマーク
+========================= */
+
+.bookmark {
+  position: absolute;
+
+  right: 35px;
+  top: 35px;
+
+  font-size: 32px;
+
+  color: #70cddd;
+
+  background: transparent;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   投稿内容
+========================= */
+
+.post-content {
+  min-height: 260px;
+}
+
+
+/* =========================
+   リアクション
+========================= */
+
+.post-reactions {
+  display: flex;
+
+  justify-content: space-around;
+
+  color: #70cddd;
+
+  font-size: 18px;
+
+  font-weight: bold;
+}
+
+
+/* =========================
+   タブのスライド
+========================= */
+
+.slider-window {
+  width: 100%;
+
+  overflow: hidden;
+  
+}
+
+.slider {
+  display: flex;
+
+  width: 300%;
+
+  transition:
+    transform 0.45s ease;
+    
+}
+
+.slide {
+  width: 33.3333%;
+
+  flex-shrink: 0;
+
+  padding: 35px 7%;
+
+  min-height: 500px;
+
+  
+}
+
+.slide > h2 {
+  margin-top: 0;
+
+  margin-bottom: 25px;
+
+  text-align: center;
+}
+
+
+/* =========================
+   偉人診断
+========================= */
+
+.diagnosis {
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 50px 30px;
+
+  text-align: center;
+}
+
+.diagnosis-icon {
+  font-size: 80px;
+}
+
+
+/* =========================
+   下部ナビゲーション
+========================= */
+
+.bottom-nav {
+  position: fixed;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 106px;
+
+  background: #08b7dc;
+
+  display: flex;
+
+  justify-content: space-around;
+
+  align-items: center;
+
+  z-index: 100;
+
+  padding: 0 20px;
+}
+
+.nav-item {
+  width: 70px;
+
+  height: 70px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #057da7;
+
+  font-size: 38px;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================
+   三本線
+========================= */
+
+.list-icon {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.list-icon i {
+  display: block;
+
+  width: 31px;
+
+  height: 7px;
+
+  border-radius: 5px;
+
+  background: currentColor;
+
+  position: relative;
+}
+
+.list-icon i::before {
+  content: "";
+
+  position: absolute;
+
+  left: -12px;
+
+  top: 0;
+
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+}
+
+
+/* =========================
+   パレット
+========================= */
+
+.palette-icon {
+  font-size: 44px;
+}
+
+
+/* =========================
+   本
+========================= */
+
+.book-icon {
+  font-size: 43px;
+}
+
+
+/* =========================
+   プロフィール
+========================= */
+
+.person-icon {
+  img {
+  filter: brightness(0) invert(1);
+}
+}
+
+
+/* =========================
+   中央の投稿ボタン
+========================= */
+
+.post-button {
+  width: 92px;
+
+  height: 92px;
+
+  margin-top: -42px;
+
+  border:
+    8px solid white;
+
+  border-radius: 50%;
+
+  background: #08b7dc;
+
+  color: white;
+
+  font-size: 55px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 18px
+    rgba(0, 0, 0, 0.18);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.post-button:hover {
+  transform: scale(1.05);
+}
+
+
+/* =========================
+   スマホ対応
+========================= */
+
+@media (max-width: 600px) {
+
+  .profile-header {
+    height: 245px;
+  }
+
+
+  .profile-image {
+    width: 140px;
+
+    height: 140px;
+
+    left: 30px;
+  }
+
+
+  .profile-text {
+    margin-left: 165px;
+  }
+
+
+  .profile-text h1 {
+    font-size: 24px;
+  }
+
+
+  .post-count {
+    font-size: 16px;
+  }
+
+
+  .profile-buttons {
+    padding:
+      0 20px 20px;
+  }
+
+
+  .profile-buttons button {
+    font-size: 15px;
+
+    padding: 15px 5px;
+  }
+
+
+  .tab {
+    font-size: 14px;
+  }
+
+
+  .tab span {
+    font-size: 22px;
+  }
+
+
+  .posts {
+    padding:
+      25px 5%;
+  }
+
+
+  .post {
+    padding: 25px;
+  }
+
+
+  .bottom-nav {
+    height: 105px;
+
+    padding: 0 10px;
+  }
+
+
+  .nav-item {
+    width: 58px;
+  }
+
+
+  .post-button {
+    width: 88px;
+
+    height: 88px;
+  }
+
+}
+
+/* ========================================
+   Supabase 投稿一覧
+======================================== */
+
+#postList {
+  width: 100%;
+}
+
+
+/* 投稿がない・読み込み中 */
+
+#postList > p {
+  text-align: center;
+  padding: 30px 10px;
+  color: #777;
+}
+
+
+/* 投稿 */
+
+#postList .post {
+  position: relative;
+
+  width: 100%;
+
+  margin-bottom: 20px;
+
+  padding: 20px;
+
+  background: #fff;
+
+  border-radius: 15px;
+
+  box-sizing: border-box;
+}
+
+
+/* 投稿ユーザー */
+
+#postList .post-user {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 15px;
+}
+
+
+/* アイコン */
+
+#postList .post-icon {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  background: #ddd;
+}
+
+
+/* ユーザー名 */
+
+#postList .post-name {
+  font-weight: bold;
+}
+
+
+/* ユーザーID */
+
+#postList .post-id {
+  font-size: 13px;
+  color: #777;
+}
+
+
+/* ブックマーク */
+
+#postList .bookmark {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  font-size: 22px;
+}
+
+
+/* 投稿内容 */
+
+#postList .post-content {
+  margin-top: 10px;
+}
+
+
+#postList .post-content h3 {
+  margin: 0 0 10px 0;
+
+  font-size: 20px;
+}
+
+
+#postList .post-content p {
+  margin: 0;
+
+  line-height: 1.7;
+
+  white-space: pre-wrap;
+
+  overflow-wrap: break-word;
+}
+
+
+/* 投稿日 */
+
+#postList .post-date {
+  margin-top: 15px;
+
+  font-size: 12px;
+
+  color: #888;
+}
+
+
+/* 公開設定 */
+
+#postList .post-type {
+  margin-top: 5px;
+
+  font-size: 12px;
+
+  color: #777;
+}
+
+
+/* リアクション */
+
+#postList .post-reactions {
+
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 15px;
+
+  padding-top: 12px;
+
+  border-top: 1px solid #eee;
+
+  font-size: 13px;
+
+  color: #555;
+
+}

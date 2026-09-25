@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>プロフィール - Ohps!史</title>
+
+  <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+  <!-- プロフィール上部 -->
+  <header class="profile-header">
+
+    <div class="username-top">
+      @username
+    </div>
+
+  </header>
+
+
+  <!-- プロフィール情報 -->
+  <section class="profile-info">
+
+    <div class="profile-image">
+      <img src="image/profile.png" alt="プロフィール画像">
+    </div>
+
+    <div class="profile-text">
+
+      <h1 id="profileName">アカウント名</h1>
+
+      <p id="postCount">
+        投稿数 0
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- プロフィールボタン -->
+  <div class="profile-buttons">
+
+    <button onclick="location.href='edit-profile.html'">
+      プロフィールを編集
+    </button>
+
+    <button id="shareProfileButton">
+      プロフィールをシェア
+    </button>
+
+  </div>
+
+
+  <!-- タブ -->
+  <div class="tabs">
+
+    <button class="tab active" data-page="0">
+      <span><img src="image/Group 28.svg" alt="過去"></span>
+      過去投稿
+    </button>
+
+    <button class="tab" data-page="1">
+      <span><img src="image/Vector.svg" alt="保存"></span>
+      保存投稿
+    </button>
+
+    <button class="tab" data-page="2">
+      <span><img src="image/palette-solid-full 1.svg" alt="偉人"></span>
+      偉人診断
+    </button>
+
+  </div>
+
+
+  <!-- 投稿一覧 -->
+  <div class="slider-window">
+
+    <div class="slider">
+
+
+      <!-- ================================= -->
+      <!-- 過去投稿 -->
+      <!-- ================================= -->
+
+      <section class="slide">
+
+        <!-- Supabaseから投稿を入れる場所 -->
+        <div id="postList">
+
+          <p class="loading">
+            投稿を読み込んでいます...
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================= -->
+      <!-- 保存投稿 -->
+      <!-- ================================= -->
+
+      <section class="slide">
+
+        <h2>保存投稿</h2>
+
+        <article class="post">
+
+          <div class="post-user">
+
+            <div class="post-icon"></div>
+
+            <div>
+
+              <div class="post-name">
+                保存した投稿
+              </div>
+
+              <div class="post-id">
+                @abc124
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="post-content">
+            保存した投稿がここに表示されます
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- ================================= -->
+      <!-- 偉人診断 -->
+      <!-- ================================= -->
+
+      <section class="slide">
+
+        <h2>偉人診断</h2>
+
+        <div class="diagnosis">
+
+          <div class="diagnosis-icon">
+            👤
+          </div>
+
+          <h2>あなたのタイプ</h2>
+
+          <p>
+            ここに診断結果を表示します
+          </p>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================================= -->
+  <!-- 下部ナビゲーション -->
+  <!-- ================================= -->
+
+  <nav class="bottom-nav">
+
+    <button
+      class="nav-item active"
+      id="mainNav"
+      onclick="location.href='main.html'"
+    >
+
+      <span class="list-icon">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+
+    </button>
+
+
+    <button class="nav-item"
+    onclick="location.href='ijin.html'">
+      <span class="palette-icon">
+        <img src="image/palette-solid-full 1.svg" alt="パレット">
+      </span>
+
+    </button>
+
+
+    <button
+      class="post-button"
+      onclick="location.href='post.html'"
+    >
+      ✎
+    </button>
+
+
+
+    <!-- 本 -->
+    <button class="nav-item"
+    onclick="location.href='history.html'">
+
+      <span class="book-icon">
+        <img src="image/Rectangle 12.svg" alt="アインシュタイン">
+      </span>
+      <span class="book-icon">
+        <img src="image/Rectangle 12.svg" alt="アインシュタイン">
+      </span>
+    </button>
+
+
+
+    <!-- プロフィール -->
+    <button
+      class="nav-item"
+      id="profileNav"
+    >
+
+      <span class="person-icon">
+        <img src="image/Union.svg" alt="プロフィール">
+      </span>
+
+    </button>
+
+  </nav>
+
+
+  <!-- ================================= -->
+  <!-- Supabase -->
+  <!-- ================================= -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- プロフィール用JavaScript -->
+  <script src="./profile.js"></script>
+
+
+  <!-- ================================= -->
+  <!-- タブ切り替え -->
+  <!-- ================================= -->
+
+  <script>
+
+    const tabs = document.querySelectorAll(".tab");
+    const slider = document.querySelector(".slider");
+
+    tabs.forEach((tab) => {
+
+      tab.addEventListener("click", () => {
+
+        const page = Number(tab.dataset.page);
+
+        slider.style.transform =
+          `translateX(-${page * 33.3333}%)`;
+
+        tabs.forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        tab.classList.add("active");
+
+      });
+
+    });
+
+  </script>
+
+</body>
+
+</html>

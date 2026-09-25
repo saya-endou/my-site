@@ -1,0 +1,626 @@
+/* =========================
+   全体
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f8dda9;
+  font-family: Arial, "Noto Sans JP", sans-serif;
+  color: #30251f;
+}
+
+.container {
+  width: 100%;
+  max-width: 820px;
+  min-height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  padding-top: 260px;
+}
+
+
+/* ===== タイトル ===== */
+
+.title-area {
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+.title-area h1 {
+  margin: 0;
+  font-size: 72px;
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -4px;
+}
+
+.title-area h1 span {
+  color: #00B7FF;
+}
+
+.title-area p {
+  margin-top: 45px;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+
+/* ===== アインシュタイン ===== */
+
+.einstein-area {
+  position: absolute;
+
+  right: -40px;
+  top: 450px;       /* 少し上に移動 */
+
+  width: 360px;
+
+  z-index: 2;
+}
+
+.einstein-area img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  transform: scaleX(-1);  /* 左右反転 */
+}
+
+
+/* ===== やっちゃった ===== */
+
+.mistake-box {
+  position: relative;
+
+  z-index: 3;
+
+  width: 510px;
+  height: 195px;
+
+  margin: 245px auto 0;
+
+  background: #00B7FF;
+
+  border-radius: 47px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mistake-box p {
+  margin: 0;
+
+  color: white;
+
+  font-size: 46px;
+  font-weight: 900;
+
+  text-shadow: 5px 5px 0 rgba(0, 130, 190, 0.5);
+}
+
+
+/* ===== 吹き出し ===== */
+
+.comment {
+  position: absolute;
+
+  background: white;
+
+  border-radius: 37px;
+
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+
+  z-index: 4;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment p {
+  margin: 0;
+
+  color: #00B7FF;
+
+  font-size: 30px;
+  font-weight: 900;
+}
+
+
+/* 1つ目 */
+
+.comment1 {
+  width: 380px;
+  height: 145px;
+
+  left: 55px;
+  top: 940px;
+}
+
+
+/* 2つ目 */
+
+.comment2 {
+  width: 380px;
+  height: 145px;
+
+  left: 140px;
+  top: 1050px;
+}
+
+
+/* ===== ボタン ===== */
+
+.buttons {
+  width: 470px;
+
+  margin: 180px auto 100px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+
+  position: relative;
+  z-index: 10;
+}
+
+.buttons a {
+  width: 100%;
+  height: 110px;
+
+  border-radius: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+
+  font-size: 28px;
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+
+/* Sign in */
+
+.login-button {
+  background: #00B7FF;
+  color: white;
+}
+
+
+/* Sign up */
+
+.signup-button {
+  background: white;
+  color: #00B7FF;
+}
+
+
+/* hover */
+
+.buttons a:hover {
+  transform: scale(1.03);
+}
+
+
+/* ===== スマホ ===== */
+
+@media (max-width: 600px) {
+
+  .container {
+    min-height: 100vh;
+    padding-top: 160px;
+  }
+
+
+  /* タイトル */
+
+  .title-area h1 {
+    font-size: 47px;
+    letter-spacing: -3px;
+  }
+
+  .title-area p {
+    font-size: 15px;
+    margin-top: 25px;
+    line-height: 1.7;
+  }
+
+
+  /* アインシュタイン */
+
+.einstein-area {
+  width: 400px;
+  right: -90px;
+  top: 300px;
+}
+
+
+  /* やっちゃった */
+
+  .mistake-box {
+    width: 70%;
+    height: 120px;
+
+    margin-top: 250px;
+
+    border-radius: 47px;
+  }
+
+  .mistake-box p {
+    font-size: 32px;
+  }
+
+
+  /* 吹き出し */
+
+  .comment1 {
+    width: 250px;
+    height: 90px;
+
+    left: 50px;
+    top: 680px;
+  }
+
+  .comment2 {
+    width: 280px;
+    height: 90px;
+
+    left: 70px;
+    top: 760px;
+  }
+
+  .comment p {
+    font-size: 23px;
+  }
+
+
+  /* ボタン */
+
+  .buttons {
+    width: 58%;
+
+    margin-top: 180px;
+  }
+
+  .buttons a {
+    height: 85px;
+    font-size: 22px;
+  }
+
+}
+
+/* ========================================
+   投稿ページ
+======================================== */
+
+.post-create {
+  width: 90%;
+  max-width: 650px;
+
+  margin: 40px auto 100px;
+
+  padding: 35px 30px;
+
+  background: #fffdf7;
+
+  border: 3px solid #222;
+
+  border-radius: 25px;
+
+  box-shadow: 8px 8px 0 #222;
+}
+
+
+/* ========================================
+   タイトル
+======================================== */
+
+.post-create h2 {
+  margin: 0 0 30px;
+
+  text-align: center;
+
+  font-size: 28px;
+
+  color: #222;
+
+  letter-spacing: 2px;
+}
+
+
+/* ========================================
+   ラベル
+======================================== */
+
+.post-create label {
+  display: block;
+
+  margin-top: 22px;
+  margin-bottom: 8px;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  color: #333;
+}
+
+
+/* ========================================
+   入力欄
+======================================== */
+
+.post-create input,
+.post-create textarea,
+.post-create select {
+
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 2px solid #333;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 15px;
+
+  color: #333;
+
+  outline: none;
+
+  transition: 0.2s;
+}
+
+
+/* フォーカスしたとき */
+
+.post-create input:focus,
+.post-create textarea:focus,
+.post-create select:focus {
+
+  border-color: #75bde8;
+
+  box-shadow: 0 0 0 4px #dff3ff;
+}
+
+
+/* ========================================
+   タイトル入力
+======================================== */
+
+#postTitle {
+
+  height: 50px;
+
+}
+
+
+/* ========================================
+   本文
+======================================== */
+
+#postText {
+
+  min-height: 220px;
+
+  resize: vertical;
+
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   プレースホルダー
+======================================== */
+
+.post-create input::placeholder,
+.post-create textarea::placeholder {
+
+  color: #aaa;
+
+}
+
+
+/* ========================================
+   公開設定
+======================================== */
+
+#postType {
+
+  height: 50px;
+
+  cursor: pointer;
+
+}
+
+
+/* ========================================
+   ボタンエリア
+======================================== */
+
+.post-create button {
+
+  width: 100%;
+
+  height: 52px;
+
+  margin-top: 20px;
+
+  border: 2px solid #222;
+
+  border-radius: 15px;
+
+  font-family: inherit;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+/* ========================================
+   投稿ボタン
+======================================== */
+
+#submitPost {
+
+  background: #8ed1f5;
+
+  color: #222;
+
+  box-shadow: 4px 4px 0 #222;
+}
+
+
+#submitPost:hover {
+
+  transform: translate(2px, 2px);
+
+  box-shadow: 2px 2px 0 #222;
+
+  background: #73c5ef;
+}
+
+
+#submitPost:active {
+
+  transform: translate(4px, 4px);
+
+  box-shadow: none;
+}
+
+
+/* ========================================
+   キャンセル
+======================================== */
+
+#cancelPost {
+
+  background: #ffffff;
+
+  color: #555;
+
+}
+
+
+#cancelPost:hover {
+
+  background: #f3f3f3;
+
+}
+
+
+/* ========================================
+   メッセージ
+======================================== */
+
+#postMessage {
+
+  min-height: 24px;
+
+  margin-top: 18px;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+}
+
+
+/* ========================================
+   ヘッダー
+======================================== */
+
+body > header {
+
+  padding: 25px 20px;
+
+  text-align: center;
+
+}
+
+
+body > header h1 {
+
+  margin: 0;
+
+  font-size: 30px;
+
+  letter-spacing: 3px;
+
+  color: #222;
+
+}
+
+
+/* ========================================
+   スマホ対応
+======================================== */
+
+@media (max-width: 600px) {
+
+  .post-create {
+
+    width: 92%;
+
+    margin-top: 25px;
+
+    padding: 25px 20px;
+
+    border-radius: 20px;
+
+    box-shadow: 6px 6px 0 #222;
+
+  }
+
+
+  .post-create h2 {
+
+    font-size: 23px;
+
+  }
+
+
+  .post-create input,
+  .post-create textarea,
+  .post-create select {
+
+    font-size: 14px;
+
+  }
+
+
+  #postText {
+
+    min-height: 180px;
+
+  }
+
+}

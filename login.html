@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ログイン - Ohps!史</title>
+
+  <!-- ログイン専用CSS -->
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="login-page">
+
+  <!-- 上の吹き出し -->
+  <div class="speech-bubble">
+    <p>やらかした？</p>
+    <p>安心したまえ、私もだ</p>
+  </div>
+
+
+  <!-- アインシュタイン -->
+  <!-- 画像は image フォルダの中 -->
+  <div class="einstein">
+    <img src="image/ansin.png" alt="アインシュタイン">
+  </div>
+
+
+  <!-- ログインフォーム -->
+  <div class="login-box">
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Email"
+    >
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+    >
+
+    <button id="loginButton">
+      Sign in
+    </button>
+
+    <p id="message"></p>
+
+    <a href="register.html" class="forgot">
+      新規登録はこちら
+    </a>
+
+  </div>
+
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
