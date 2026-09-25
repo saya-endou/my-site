@@ -563,42 +563,67 @@ body {
 
   .mistake-box {
     width: calc(100% - 60px);
+
     margin-left: 30px;
-    min-height: 500px;
+
+    padding: 35px 20px 35px;
+
     border-radius: 30px;
   }
 
+
   .timeline-line {
-    left: 32px;
+    left: 40px;
+
+    top: 40px;
+    bottom: 40px;
   }
+
 
   .mistake {
-    left: 32px;
+
+    min-height: 95px;
+
+    margin-bottom: 20px;
+
+    padding-left: 60px;
   }
+
+
+  .timeline-dot {
+
+    left: -10px;
+
+    width: 22px;
+    height: 22px;
+  }
+
 
   .mistake p {
-    margin-left: 55px;
+
     font-size: 17px;
+
+    line-height: 1.7;
+
+    max-width: 90%;
+
+    padding-bottom: 7px;
   }
 
-  .mistake-1 {
-    top: 30px;
-  }
 
-  .mistake-2 {
-    top: 125px;
-  }
-
-  .mistake-3 {
-    top: 255px;
-  }
-
-  .mistake-4 {
-    top: 325px;
-  }
-
+  .mistake-1,
+  .mistake-2,
+  .mistake-3,
+  .mistake-4,
   .mistake-5 {
-    top: 410px;
+
+    top: auto;
+    left: auto;
+  }
+
+
+  .mistake:last-child {
+    margin-bottom: 0;
   }
 
   .einstein {
