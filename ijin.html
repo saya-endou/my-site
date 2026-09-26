@@ -5,310 +5,370 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>偉人診断</title>
+  <title>やらかし偉人タイプ診断</title>
 
-  <style>
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-
-    header {
-      background-color: white;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-
-    header h1 {
-      margin: 0;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-    }
-
-    .screen {
-      background-color: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    .question {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 25px;
-    }
-
-    .answers {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .answer-button {
-      padding: 20px;
-      border: 2px solid #ddd;
-      border-radius: 12px;
-      background-color: white;
-      cursor: pointer;
-      font-size: 16px;
-      text-align: left;
-      transition: 0.2s;
-    }
-
-    .answer-button:hover {
-      background-color: #f0f0f0;
-      transform: translateY(-2px);
-    }
-
-    .answer-button .label {
-      font-size: 20px;
-      font-weight: bold;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .start-button,
-    .retry-button {
-      display: block;
-      margin: 25px auto 0;
-      padding: 15px 40px;
-      border: none;
-      border-radius: 30px;
-      background-color: #333;
-      color: white;
-      font-size: 17px;
-      cursor: pointer;
-    }
-
-    .start-button:hover,
-    .retry-button:hover {
-      opacity: 0.8;
-    }
-
-    /* 結果 */
-
-    .result {
-      text-align: center;
-    }
-
-    .result-type {
-      font-size: 18px;
-      color: #777;
-    }
-
-    .result-person {
-      font-size: 35px;
-      font-weight: bold;
-      margin: 15px 0;
-    }
-
-    .result-description {
-      line-height: 1.8;
-      text-align: left;
-      background-color: #f7f7f7;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-
-    @media (max-width: 600px) {
-
-      main {
-        padding: 10px;
-      }
-
-      .screen {
-        padding: 20px;
-      }
-
-      .answers {
-        grid-template-columns: 1fr;
-      }
-
-      .question {
-        font-size: 19px;
-      }
-
-    }
-
-  </style>
-
+  <link rel="stylesheet" href="ijin.css">
 </head>
 
 
 <body>
 
-<header>
-
-  <h1>偉人診断</h1>
-
-</header>
+<div class="app-shell">
 
 
-<main>
+  <!-- =====================================================
+       上部の水色バー
+  ===================================================== -->
+
+  <div class="top-bar"></div>
 
 
-  <!-- ============================= -->
-  <!-- スタート画面 -->
-  <!-- ============================= -->
+  <!-- =====================================================
+       メイン
+  ===================================================== -->
 
-  <section id="start-screen" class="screen">
+  <main class="app-main">
 
-    <h2>あなたはどの偉人タイプ？</h2>
 
-    <p>
-      いくつかの質問に答えると、
-      あなたの失敗の仕方や考え方に近い偉人を診断します。
-    </p>
+    <!-- =================================================
+         スタート画面
+         Q0の画像を表示
+    ================================================= -->
 
-    <p>
-      全部で約8問です。
-    </p>
+    <section
+      id="start-screen"
+      class="screen start-screen"
+    >
+
+      <div class="start-content">
+
+        <h1 class="app-title">
+          やらかし<br>
+          <span>偉人タイプ診断</span>
+        </h1>
+
+
+        <p class="start-description">
+          あなたのやらかし傾向から<br>
+          ぴったりの偉人タイプを診断します。
+        </p>
+
+        <p class="start-description small">
+          全10問・約2分で完了！
+        </p>
+
+
+        <!-- =================================================
+             Q0
+             診断スタート前の画像
+        ================================================= -->
+
+        <div class="person-image start-person">
+
+          <img
+            src="images/q0.png"
+            alt="診断スタート"
+          >
+
+        </div>
+
+
+        <!-- スタートボタン -->
+
+        <button
+          class="start-button"
+          type="button"
+          onclick="startDiagnosis()"
+        >
+          診断をはじめる
+        </button>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         Q1〜Q5
+         A〜Dの4タイプを決定
+    ================================================= -->
+
+    <section
+      id="common-screen"
+      class="screen question-screen hidden"
+    >
+
+      <!-- 進捗 -->
+
+      <div class="progress-area">
+
+        <div class="progress-text">
+
+          <span id="progress-number">
+            1
+          </span>
+
+          /10
+
+        </div>
+
+
+        <div class="progress-bar">
+
+          <div
+            id="progress-fill"
+            class="progress-fill"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           質問＋画像
+      ================================================= -->
+
+      <div class="question-person-area">
+
+        <div
+          id="common-question"
+          class="question"
+        ></div>
+
+
+        <!-- Q1〜Q5の画像 -->
+
+        <div class="person-image question-person">
+
+          <img
+            id="common-person-image"
+            src=""
+            alt="質問画像"
+          >
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 回答 -->
+
+      <div
+        id="common-answers"
+        class="answers"
+      ></div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         Q6〜Q10
+         選ばれたタイプの中から偉人を決定
+    ================================================= -->
+
+    <section
+      id="type-screen"
+      class="screen question-screen hidden"
+    >
+
+      <!-- 進捗 -->
+
+      <div class="progress-area">
+
+        <div class="progress-text">
+
+          <span id="progress-number-type">
+            6
+          </span>
+
+          /10
+
+        </div>
+
+
+        <div class="progress-bar">
+
+          <div
+            id="progress-fill-type"
+            class="progress-fill"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           質問＋画像
+      ================================================= -->
+
+      <div class="question-person-area">
+
+        <div
+          id="type-question"
+          class="question"
+        ></div>
+
+
+        <!-- Q6〜Q10の画像 -->
+
+        <div class="person-image question-person">
+
+          <img
+            id="type-person-image"
+            src=""
+            alt="質問画像"
+          >
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 回答 -->
+
+      <div
+        id="type-answers"
+        class="answers"
+      ></div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         診断結果
+    ================================================= -->
+
+    <section
+      id="result-screen"
+      class="screen result-screen hidden"
+    >
+
+      <div class="result">
+
+        <p class="result-type">
+          あなたの診断結果
+        </p>
+
+
+        <h2 id="result-type"></h2>
+
+
+        <div
+          id="result-person"
+          class="result-person"
+        ></div>
+
+
+        <div class="result-person-image">
+
+          <img
+            id="result-image"
+            src=""
+            alt="診断結果の偉人"
+          >
+
+        </div>
+
+
+        <div
+          id="result-description"
+          class="result-description"
+        ></div>
+
+
+        <button
+          class="retry-button"
+          type="button"
+          onclick="location.reload()"
+        >
+          もう一度診断する
+        </button>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       下部ナビゲーション
+  ===================================================== -->
+
+  <nav class="bottom-nav">
 
     <button
-      class="start-button"
-      onclick="startDiagnosis()"
+      class="nav-item"
+      type="button"
     >
-      診断を始める
+      <span class="nav-icon">
+        ☷
+      </span>
     </button>
 
-  </section>
+
+    <button
+      class="nav-item"
+      type="button"
+    >
+      <span class="nav-icon">
+        ◉
+      </span>
+    </button>
+
+
+    <button
+      class="nav-pencil"
+      type="button"
+    >
+      ✎
+    </button>
+
+
+    <button
+      class="nav-item"
+      type="button"
+    >
+      <span class="nav-icon">
+        ▮
+      </span>
+    </button>
+
+
+    <button
+      class="nav-item"
+      type="button"
+    >
+      <span class="nav-icon">
+        ♟
+      </span>
+    </button>
+
+  </nav>
+
+
+</div>
 
 
 
-  <!-- ============================= -->
-  <!-- 最初の質問 -->
-  <!-- ============================= -->
-
-  <section
-    id="common-screen"
-    class="screen hidden"
-  >
-
-    <div
-      id="common-question"
-      class="question"
-    ></div>
-
-    <div
-      id="common-answers"
-      class="answers"
-    ></div>
-
-  </section>
-
-
-
-  <!-- ============================= -->
-  <!-- 5問目以降 -->
-  <!-- ============================= -->
-
-  <section
-    id="type-screen"
-    class="screen hidden"
-  >
-
-    <div
-      id="type-question"
-      class="question"
-    ></div>
-
-    <div
-      id="type-answers"
-      class="answers"
-    ></div>
-
-  </section>
-
-
-
-  <!-- ============================= -->
-  <!-- 同点決着 -->
-  <!-- ============================= -->
-
-  <section
-    id="tie-screen"
-    class="screen hidden"
-  >
-
-    <div
-      id="tie-question"
-      class="question"
-    ></div>
-
-    <div
-      id="tie-answers"
-      class="answers"
-    ></div>
-
-  </section>
-
-
-
-  <!-- ============================= -->
-  <!-- 診断結果 -->
-  <!-- ============================= -->
-
-  <section
-    id="result-screen"
-    class="screen hidden"
-  >
-
-    <div class="result">
-
-      <p class="result-type">
-        あなたの診断結果
-      </p>
-
-      <!-- A：などは表示せず、タイプ名だけ表示 -->
-
-      <h2 id="result-type"></h2>
-
-      <div
-        id="result-person"
-        class="result-person"
-      ></div>
-
-      <div
-        id="result-description"
-        class="result-description"
-      ></div>
-
-      <button
-        class="retry-button"
-        onclick="location.reload()"
-      >
-        もう一度診断する
-      </button>
-
-    </div>
-
-  </section>
-
-
-</main>
-
-
+<!-- =====================================================
+     JavaScript
+===================================================== -->
 
 <script>
 
@@ -317,8 +377,12 @@
    タイプ・偉人データ
 ===================================================== */
 
-
 const types = {
+
+
+  /* ===================================================
+     A：考え込むタイプ
+  =================================================== */
 
   A: {
 
@@ -331,24 +395,36 @@ const types = {
 
       {
         name: "キュリー",
+
+        image: "images/kyuri.png",
+
         description:
           "「なんで？」を深く考える研究者タイプ。原因が分かるまで考え続け、失敗から学ぼうとします。"
       },
 
       {
         name: "ベートーヴェン",
+
+        image: "images/veetobenn.png",
+
         description:
           "完成度を高めることを大切にするタイプ。何度も試行錯誤しながら、自分の理想を追求します。"
       },
 
       {
         name: "ニュートン",
+
+        image: "images/nyu-tonn.png",
+
         description:
           "一人でじっくり考えるタイプ。問題を整理し、自分なりの答えを見つけようとします。"
       },
 
       {
         name: "ダーウィン",
+
+        image: "images/daawinn.png",
+
         description:
           "失敗しないために準備や確認を重視するタイプ。慎重に考えてから行動します。"
       }
@@ -357,6 +433,10 @@ const types = {
 
   },
 
+
+  /* ===================================================
+     B：気にしちゃうタイプ
+  =================================================== */
 
   B: {
 
@@ -369,24 +449,36 @@ const types = {
 
       {
         name: "ゴッホ",
+
+        image: "images/gohho.png",
+
         description:
           "感情の動きが大きく、自分の感じたことを大切にするタイプ。失敗や周囲の反応も強く受け止めます。"
       },
 
       {
         name: "紫式部",
+
+        image: "images/murasakisibu.png",
+
         description:
           "人の行動や気持ちをよく観察するタイプ。周囲との関係を考えながら物事を捉えます。"
       },
 
       {
-        name: "清少納言",
+        name: "リンカーン",
+
+        image: "images/rinnkann.png",
+
         description:
-          "相手や周囲の変化に敏感なタイプ。人とのやり取りから多くのことを感じ取ります。"
+          "人との関係や周囲への責任を強く意識するタイプ。自分だけの問題として終わらせず、周りの人のことまで考えてしまいます。"
       },
 
       {
         name: "ナイチンゲール",
+
+        image: "images/naitingeru.png",
+
         description:
           "周囲の人を気にかけ、責任感を持って行動するタイプ。人のために行動することを大切にします。"
       }
@@ -395,6 +487,10 @@ const types = {
 
   },
 
+
+  /* ===================================================
+     C：突き進むタイプ
+  =================================================== */
 
   C: {
 
@@ -406,33 +502,49 @@ const types = {
     people: [
 
       {
-        name: "Cタイプ偉人①",
+        name: "アインシュタイン",
+
+        image: "images/ainnshutain.png",
+
         description:
-          "失敗しても行動を続ける挑戦型の人物。"
+          "失敗や間違いを恐れず、自分なりの考えを追求するタイプ。何度も考え直しながら、新しい発想を生み出していきます。"
       },
 
       {
-        name: "Cタイプ偉人②",
+        name: "ナポレオン",
+
+        image: "images/naporeonn.png",
+
         description:
-          "失敗を経験として受け止め、次の挑戦につなげる人物。"
+          "目標に向かって積極的に行動するタイプ。困難な状況でも前に進み、次の行動へとつなげていきます。"
       },
 
       {
-        name: "Cタイプ偉人③",
+        name: "ガリレオ",
+
+        image: "images/garireo.png",
+
         description:
-          "まず行動してみることを大切にする人物。"
+          "自分で確かめることを大切にし、常識にとらわれず行動するタイプ。疑問を持ったら、自分の目で確かめようとします。"
       },
 
       {
-        name: "Cタイプ偉人④",
+        name: "信長",
+
+        image: "images/nobunaga.png",
+
         description:
-          "失敗を恐れず、新しいことに挑戦し続ける人物。"
+          "新しいことを恐れず、思い切って行動するタイプ。これまでのやり方にとらわれず、自分の道を突き進みます。"
       }
 
     ]
 
   },
 
+
+  /* ===================================================
+     D：手放すタイプ
+  =================================================== */
 
   D: {
 
@@ -444,27 +556,39 @@ const types = {
     people: [
 
       {
-        name: "Dタイプ偉人①",
+        name: "クレオパトラ",
+
+        image: "images/kureopatora.png",
+
         description:
-          "失敗しても気持ちを切り替え、次のことに進む人物。"
+          "状況が変わっても、その場に合わせて柔軟に立ち回るタイプ。ひとつの失敗に固執せず、その時々で最善の方法を考えて前へ進みます。"
       },
 
       {
-        name: "Dタイプ偉人②",
+        name: "マリー・アントワネット",
+
+        image: "images/mariantoanetto.png",
+
         description:
-          "失敗を必要以上に引きずらず、前向きに行動する人物。"
+          "周囲の状況に左右されながらも、自分らしさを大切にしたタイプ。失敗をいつまでも抱え込まず、自分の感覚で前に進もうとします。"
       },
 
       {
-        name: "Dタイプ偉人③",
+        name: "卑弥呼",
+
+        image: "images/himiko.png",
+
         description:
-          "失敗も経験の一つとして受け止める人物。"
+          "理屈だけに頼らず、自分の感覚やひらめきを信じるタイプ。状況を見ながら直感的に判断し、周囲を動かしていきます。"
       },
 
       {
-        name: "Dタイプ偉人④",
+        name: "ダ・ヴィンチ",
+
+        image: "images/dabinti.png",
+
         description:
-          "失敗したときも笑って受け止め、次に進む人物。"
+          "ひとつの考えにとらわれず、興味の向くまま新しいことへ進んでいくタイプ。失敗しても別の視点から考え直し、次のアイデアにつなげます。"
       }
 
     ]
@@ -476,9 +600,9 @@ const types = {
 
 
 /* =====================================================
-   最初の4問
+   Q1〜Q5
+   A〜Dの4タイプを決める
 ===================================================== */
-
 
 const commonQuestions = [
 
@@ -603,6 +727,37 @@ const commonQuestions = [
 
     ]
 
+  },
+
+
+  {
+    question:
+      "Q5. あなたが一番したいことは？",
+
+    answers: [
+
+      {
+        type: "A",
+        text: "失敗した理由をちゃんと理解したい"
+      },
+
+      {
+        type: "B",
+        text: "周りの人がどう思ったか気になる"
+      },
+
+      {
+        type: "C",
+        text: "次にどうするかすぐ考えたい"
+      },
+
+      {
+        type: "D",
+        text: "まあ仕方ない、切り替えよう"
+      }
+
+    ]
+
   }
 
 ];
@@ -610,18 +765,21 @@ const commonQuestions = [
 
 
 /* =====================================================
-   タイプごとの追加質問
+   タイプごとのQ6〜Q10
 ===================================================== */
-
 
 const additionalQuestions = {
 
+
+  /* ===================================================
+     A：考え込むタイプ
+  =================================================== */
 
   A: [
 
     {
       question:
-        "Q5. 失敗後について一番近いのは？",
+        "Q6. 失敗後について一番近いのは？",
 
       answers: [
 
@@ -636,7 +794,7 @@ const additionalQuestions = {
 
     {
       question:
-        "Q6. 次回に向けて一番したいのは？",
+        "Q7. 次回に向けて一番したいのは？",
 
       answers: [
 
@@ -651,7 +809,7 @@ const additionalQuestions = {
 
     {
       question:
-        "Q7. 一番しっくりくるのは？",
+        "Q8. 一番しっくりくるのは？",
 
       answers: [
 
@@ -661,23 +819,58 @@ const additionalQuestions = {
         "「失敗する前に防ぎたい」"
 
       ]
+    },
+
+
+    {
+      question:
+        "Q9. 失敗したことについて、最後に一番考えてしまうのは？",
+
+      answers: [
+
+        "「そもそも、なぜ失敗したのか？」",
+        "「もっと良いものにできたんじゃないか？」",
+        "「自分なりの答えは何なのか？」",
+        "「次に同じ失敗をしないためには？」"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q10. あなたが一番しっくりくる言葉は？",
+
+      answers: [
+
+        "「納得するまで原因を調べたい」",
+        "「もっと完成度を上げたい」",
+        "「自分でじっくり答えを見つけたい」",
+        "「失敗する前に準備しておきたい」"
+
+      ]
     }
 
   ],
 
+
+
+  /* ===================================================
+     B：気にしちゃうタイプ
+  =================================================== */
 
   B: [
 
     {
       question:
-        "Q5. その後、一番苦しいのは？",
+        "Q6. 失敗したあと、一番気になってしまうのは？",
 
       answers: [
 
-        "感情そのものがしんどい",
-        "自分の言動が気になる",
-        "相手の反応が気になる",
-        "迷惑をかけたことが気になる"
+        "自分の感情が大きく揺れてしまうこと",
+        "相手の言葉や表情の意味を考えてしまうこと",
+        "周りの人に迷惑をかけていないか気になること",
+        "自分がもっと誰かの役に立てたのではないかと思うこと"
 
       ]
     },
@@ -685,14 +878,14 @@ const additionalQuestions = {
 
     {
       question:
-        "Q6. 夜、頭の中で起きているのは？",
+        "Q7. 夜になってから頭の中で考えてしまうのは？",
 
       answers: [
 
-        "「もう無理！」と感情が大きくなる",
-        "同じ場面を何度も再生する",
-        "「相手どう思ったかな？」と考える",
-        "「私がもっとやれば…」と責任を感じる"
+        "「あのとき、もっと自分の気持ちを抑えられたかな…」",
+        "「あの人、あの言葉をどういう意味で言ったんだろう？」",
+        "「自分だけじゃなくて、周りにも影響してしまったかな…」",
+        "「自分がもっとちゃんとしていればよかった…」"
 
       ]
     },
@@ -700,14 +893,44 @@ const additionalQuestions = {
 
     {
       question:
-        "Q7. 友達に言いたいのは？",
+        "Q8. 失敗したとき、友達に一番言いたいのは？",
 
       answers: [
 
-        "「聞いて、今日ほんとに大変だった」",
-        "「あの言い方まずかったかな」",
-        "「嫌われてないかな？」",
-        "「みんなに申し訳ない…」"
+        "「今日ほんとに感情がぐちゃぐちゃだった…」",
+        "「あの人、どう思ってたのかな？」",
+        "「みんなに迷惑かけてないかな？」",
+        "「もっと自分が頑張ればよかった…」"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q9. 失敗したあと、一番頭に残るのは？",
+
+      answers: [
+
+        "「自分、感情的になりすぎたかな…」",
+        "「あの人はどういう意味で言ったんだろう？」",
+        "「周りに迷惑をかけてないかな…」",
+        "「もっと誰かの役に立てたんじゃないかな…」"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q10. 一番しっくりくる言葉は？",
+
+      answers: [
+
+        "「自分の気持ちを大切にしたい」",
+        "「人の気持ちをもっと知りたい」",
+        "「周りの人のことまで考えたい」",
+        "「誰かの役に立ちたい」"
 
       ]
     }
@@ -715,11 +938,16 @@ const additionalQuestions = {
   ],
 
 
+
+  /* ===================================================
+     C：突き進むタイプ
+  =================================================== */
+
   C: [
 
     {
       question:
-        "Q5. 失敗した直後、一番近い行動は？",
+        "Q6. 失敗した直後、一番近い行動は？",
 
       answers: [
 
@@ -734,7 +962,7 @@ const additionalQuestions = {
 
     {
       question:
-        "Q6. 次に向けて一番したいことは？",
+        "Q7. 次に向けて一番したいことは？",
 
       answers: [
 
@@ -749,7 +977,7 @@ const additionalQuestions = {
 
     {
       question:
-        "Q7. 一番しっくりくる言葉は？",
+        "Q8. 一番しっくりくる言葉は？",
 
       answers: [
 
@@ -759,23 +987,58 @@ const additionalQuestions = {
         "「もう一回挑戦しよう」"
 
       ]
+    },
+
+
+    {
+      question:
+        "Q9. 失敗したあと、一番近い行動は？",
+
+      answers: [
+
+        "「別の方法を考えてみよう」",
+        "「もっと大胆にやってみよう」",
+        "「実際に試して確かめよう」",
+        "「とにかく先に進もう」"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q10. 一番しっくりくる言葉は？",
+
+      answers: [
+
+        "「新しい方法を考えてみよう」",
+        "「やるなら大きく挑戦しよう」",
+        "「まず確かめてみよう」",
+        "「前に進もう」"
+
+      ]
     }
 
   ],
 
 
+
+  /* ===================================================
+     D：手放すタイプ
+  =================================================== */
+
   D: [
 
     {
       question:
-        "Q5. 失敗した直後、一番近いのは？",
+        "Q6. 失敗した直後、一番近いのは？",
 
       answers: [
 
-        "まあ仕方ない",
-        "次に行こうと思う",
-        "誰かに話してスッキリする",
-        "笑って済ませる"
+        "「状況が変わったなら、やり方も変えればいい」",
+        "「まあ、そういうこともあるよね」",
+        "「自分の感覚を信じて次に進もう」",
+        "「別の方法を試してみよう」"
 
       ]
     },
@@ -783,14 +1046,14 @@ const additionalQuestions = {
 
     {
       question:
-        "Q6. 次に向けて一番したいことは？",
+        "Q7. 次に向けて一番したいことは？",
 
       answers: [
 
-        "気持ちを切り替える",
-        "別のことを始める",
-        "友達と話す",
-        "とりあえず寝る"
+        "その場の状況に合わせて動き方を変える",
+        "気持ちを切り替えて自分らしく進む",
+        "直感を信じて新しい方向へ進む",
+        "別の視点から考えて新しいアイデアを試す"
 
       ]
     },
@@ -798,14 +1061,44 @@ const additionalQuestions = {
 
     {
       question:
-        "Q7. 一番しっくりくる言葉は？",
+        "Q8. 一番しっくりくる言葉は？",
 
       answers: [
 
-        "「終わったことだし」",
-        "「次いこう」",
-        "「まあそんなこともある」",
-        "「笑い話にしよう」"
+        "「状況が変われば、私も変わる」",
+        "「過ぎたことは気にしない」",
+        "「自分のひらめきを信じよう」",
+        "「違う方法を試してみよう」"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q9. 予定通りにいかなかったとき、一番近いのは？",
+
+      answers: [
+
+        "「じゃあ状況に合わせてやり方を変えよう」",
+        "「まあ、そういうこともあるよね」",
+        "「自分の感覚を信じて進もう」",
+        "「別の面白い方法を探してみよう」"
+
+      ]
+    },
+
+
+    {
+      question:
+        "Q10. 一番しっくりくる言葉は？",
+
+      answers: [
+
+        "「状況が変われば、私も変わる」",
+        "「過ぎたことは気にしない」",
+        "「自分のひらめきを信じよう」",
+        "「違う方法を試してみよう」"
 
       ]
     }
@@ -817,40 +1110,8 @@ const additionalQuestions = {
 
 
 /* =====================================================
-   最終質問
+   診断用変数
 ===================================================== */
-
-
-const tieQuestions = [
-
-  {
-    question:
-      "Q8. 今のあなたに一番近い言葉は？",
-
-    answers: [
-
-      {
-        text: "失敗した理由を理解して、次に活かしたい",
-        type: "A"
-      },
-
-      {
-        text: "失敗しても気持ちを切り替えて前に進みたい",
-        type: "D"
-      }
-
-    ]
-
-  }
-
-];
-
-
-
-/* =====================================================
-   診断用の変数
-===================================================== */
-
 
 let commonIndex = 0;
 
@@ -858,6 +1119,8 @@ let additionalIndex = 0;
 
 let selectedType = null;
 
+
+/* Q1〜Q5のA〜D得点 */
 
 let typeScores = {
 
@@ -869,7 +1132,61 @@ let typeScores = {
 };
 
 
+/* Q6〜Q10の偉人得点 */
+
 let personScores = {};
+
+
+/* Q5で選ばれたタイプ */
+
+let q5SelectedType = null;
+
+
+/* Q6〜Q10で最後に選択した偉人 */
+
+let lastSelectedPerson = null;
+
+
+
+/* =====================================================
+   Q1〜Q5の画像
+   Q1 → q1.png
+   Q2 → q2.png
+   Q3 → q3.png
+   Q4 → q4.png
+   Q5 → q5.png
+===================================================== */
+
+const commonImages = [
+
+  "images/q1.png",
+  "images/q2.png",
+  "images/q3.png",
+  "images/q4.png",
+  "images/q5.png"
+
+];
+
+
+
+/* =====================================================
+   Q6〜Q10の画像
+   Q6 → q6.png
+   Q7 → q7.png
+   Q8 → q8.png
+   Q9 → q9.png
+   Q10 → q10.png
+===================================================== */
+
+const additionalImages = [
+
+  "images/q6.png",
+  "images/q7.png",
+  "images/q8.png",
+  "images/q9.png",
+  "images/q10.png"
+
+];
 
 
 
@@ -877,18 +1194,20 @@ let personScores = {};
    診断スタート
 ===================================================== */
 
-
 function startDiagnosis() {
 
   document
     .getElementById("start-screen")
     .classList.add("hidden");
 
+
   document
     .getElementById("common-screen")
     .classList.remove("hidden");
 
+
   commonIndex = 0;
+
 
   showCommonQuestion();
 
@@ -897,9 +1216,8 @@ function startDiagnosis() {
 
 
 /* =====================================================
-   最初の質問を表示
+   Q1〜Q5表示
 ===================================================== */
-
 
 function showCommonQuestion() {
 
@@ -907,11 +1225,59 @@ function showCommonQuestion() {
     commonQuestions[commonIndex];
 
 
+  /* 質問文 */
+
   document
     .getElementById("common-question")
     .textContent =
     question.question;
 
+
+
+  /* =================================================
+     進捗
+  ================================================= */
+
+  const number =
+    commonIndex + 1;
+
+
+  document
+    .getElementById("progress-number")
+    .textContent =
+    number;
+
+
+  document
+    .getElementById("progress-fill")
+    .style.width =
+    `${number / 10 * 100}%`;
+
+
+
+  /* =================================================
+     Q1〜Q5の画像
+     
+     commonIndex
+     0 → q1.png
+     1 → q2.png
+     2 → q3.png
+     3 → q4.png
+     4 → q5.png
+  ================================================= */
+
+  const image =
+    document.getElementById(
+      "common-person-image"
+    );
+
+
+  image.src =
+    commonImages[commonIndex];
+
+
+
+  /* 回答欄 */
 
   const answers =
     document.getElementById(
@@ -933,14 +1299,12 @@ function showCommonQuestion() {
         "answer-button";
 
 
-      button.innerHTML =
-        `
-          <span class="label">
-            ${answer.type}
-          </span>
+      button.textContent =
+        answer.text;
 
-          ${answer.text}
-        `;
+
+      button.type =
+        "button";
 
 
       button.onclick =
@@ -963,13 +1327,22 @@ function showCommonQuestion() {
 
 
 /* =====================================================
-   最初の質問への回答
+   Q1〜Q5回答
 ===================================================== */
-
 
 function selectCommonAnswer(type) {
 
   typeScores[type]++;
+
+
+  /* Q5の回答を保存 */
+
+  if (commonIndex === 4) {
+
+    q5SelectedType = type;
+
+  }
+
 
   commonIndex++;
 
@@ -994,9 +1367,8 @@ function selectCommonAnswer(type) {
 
 
 /* =====================================================
-   A〜Dのタイプを決定
+   A〜D決定
 ===================================================== */
-
 
 function decideType() {
 
@@ -1020,15 +1392,23 @@ function decideType() {
       );
 
 
-  if (topTypes.length > 1) {
+  /*
+    同点の場合はQ5の回答を優先
+  */
 
-    selectedType = topTypes[0];
+  if (
+    topTypes.includes(q5SelectedType)
+  ) {
+
+    selectedType =
+      q5SelectedType;
 
   }
 
   else {
 
-    selectedType = topTypes[0];
+    selectedType =
+      topTypes[0];
 
   }
 
@@ -1040,9 +1420,8 @@ function decideType() {
 
 
 /* =====================================================
-   追加質問を開始
+   Q6〜Q10開始
 ===================================================== */
-
 
 function startAdditionalQuestions() {
 
@@ -1062,12 +1441,22 @@ function startAdditionalQuestions() {
   personScores = {};
 
 
+  lastSelectedPerson = null;
+
+
+  /*
+    選ばれたタイプの4人を
+    0点からスタート
+  */
+
   types[selectedType].people.forEach(
+
     function(person) {
 
       personScores[person.name] = 0;
 
     }
+
   );
 
 
@@ -1078,9 +1467,8 @@ function startAdditionalQuestions() {
 
 
 /* =====================================================
-   追加質問を表示
+   Q6〜Q10表示
 ===================================================== */
-
 
 function showAdditionalQuestion() {
 
@@ -1089,11 +1477,61 @@ function showAdditionalQuestion() {
     [additionalIndex];
 
 
+  /* 質問文 */
+
   document
     .getElementById("type-question")
     .textContent =
     question.question;
 
+
+
+  /* =================================================
+     進捗
+  ================================================= */
+
+  const number =
+    additionalIndex + 6;
+
+
+  document
+    .getElementById("progress-number-type")
+    .textContent =
+    number;
+
+
+  document
+    .getElementById("progress-fill-type")
+    .style.width =
+    `${number / 10 * 100}%`;
+
+
+
+  /* =================================================
+     Q6〜Q10の画像
+     
+     additionalIndex
+     0 → q6.png
+     1 → q7.png
+     2 → q8.png
+     3 → q9.png
+     4 → q10.png
+  ================================================= */
+
+  const image =
+    document.getElementById(
+      "type-person-image"
+    );
+
+
+  image.src =
+    additionalImages[additionalIndex];
+
+
+
+  /* =================================================
+     回答
+  ================================================= */
 
   const answers =
     document.getElementById(
@@ -1105,6 +1543,7 @@ function showAdditionalQuestion() {
 
 
   question.answers.forEach(
+
     function(answer, index) {
 
       const button =
@@ -1115,13 +1554,18 @@ function showAdditionalQuestion() {
         "answer-button";
 
 
-      /*
-        ここでは偉人の名前を表示しない
-      */
+      button.type =
+        "button";
+
 
       button.textContent =
         answer;
 
+
+      /*
+        Q6〜Q10の4つの回答は
+        選ばれたタイプの4人の偉人に対応
+      */
 
       const person =
         types[selectedType]
@@ -1141,6 +1585,7 @@ function showAdditionalQuestion() {
       answers.appendChild(button);
 
     }
+
   );
 
 }
@@ -1148,26 +1593,38 @@ function showAdditionalQuestion() {
 
 
 /* =====================================================
-   追加質問への回答
+   Q6〜Q10回答
 ===================================================== */
-
 
 function selectAdditionalAnswer(
   personName
 ) {
 
+  /* 得点を追加 */
+
   personScores[personName]++;
+
+
+  /* 最後に選択した偉人を保存 */
+
+  lastSelectedPerson =
+    personName;
+
 
   additionalIndex++;
 
 
+  /* Q6〜Q10がまだ残っている */
+
   if (
-    additionalIndex < 3
+    additionalIndex < 5
   ) {
 
     showAdditionalQuestion();
 
   }
+
+  /* Q10終了 */
 
   else {
 
@@ -1180,9 +1637,8 @@ function selectAdditionalAnswer(
 
 
 /* =====================================================
-   偉人を決定
+   16タイプ・偉人決定
 ===================================================== */
-
 
 function decidePerson() {
 
@@ -1194,30 +1650,71 @@ function decidePerson() {
 
   const max =
     Math.max(
+
       ...scores.map(
+
         function(item) {
 
           return item[1];
 
         }
+
       )
+
     );
 
 
   const winners =
     scores.filter(
+
       function(item) {
 
         return item[1] === max;
 
       }
+
     );
 
 
-  if (winners.length > 1) {
 
-    showTieQuestion(
-      winners
+  /*
+    同点の場合は
+    Q10の最後の回答を優先
+  */
+
+  if (
+    winners.length > 1
+  ) {
+
+    const q10Winner =
+      lastSelectedPerson;
+
+
+    if (
+      q10Winner &&
+      winners.some(
+        function(winner) {
+
+          return winner[0] === q10Winner;
+
+        }
+      )
+    ) {
+
+      showResult(q10Winner);
+
+      return;
+
+    }
+
+
+    /*
+      それでも決まらなければ
+      偉人の順番で決定
+    */
+
+    showResult(
+      winners[0][0]
     );
 
   }
@@ -1235,99 +1732,15 @@ function decidePerson() {
 
 
 /* =====================================================
-   同点だった場合
+   診断結果
 ===================================================== */
 
-
-function showTieQuestion(winners) {
+function showResult(
+  personName
+) {
 
   document
     .getElementById("type-screen")
-    .classList.add("hidden");
-
-
-  document
-    .getElementById("tie-screen")
-    .classList.remove("hidden");
-
-
-  const question =
-    tieQuestions[0];
-
-
-  document
-    .getElementById("tie-question")
-    .textContent =
-    question.question;
-
-
-  const answers =
-    document.getElementById(
-      "tie-answers"
-    );
-
-
-  answers.innerHTML = "";
-
-
-  /*
-    同点の場合も偉人の名前は表示しない
-  */
-
-  winners.forEach(
-    function(winner, index) {
-
-      const personName =
-        winner[0];
-
-
-      const button =
-        document.createElement("button");
-
-
-      button.className =
-        "answer-button";
-
-
-      button.textContent =
-        index === 0
-          ? "この失敗を理解して次に活かしたい"
-          : "失敗しても切り替えて前に進みたい";
-
-
-      button.onclick =
-        function() {
-
-          showResult(
-            personName
-          );
-
-        };
-
-
-      answers.appendChild(button);
-
-    }
-  );
-
-}
-
-
-
-/* =====================================================
-   診断結果を表示
-===================================================== */
-
-
-function showResult(personName) {
-
-  document
-    .getElementById("type-screen")
-    .classList.add("hidden");
-
-
-  document
-    .getElementById("tie-screen")
     .classList.add("hidden");
 
 
@@ -1336,22 +1749,27 @@ function showResult(personName) {
     .classList.remove("hidden");
 
 
+
+  /* 選ばれた偉人を取得 */
+
   const person =
     types[selectedType]
     .people
     .find(
+
       function(person) {
 
         return person.name === personName;
 
       }
+
     );
 
 
-  /*
-    A：などは表示せず、
-    タイプ名だけ表示
-  */
+
+  /* =================================================
+     タイプ名
+  ================================================= */
 
   document
     .getElementById("result-type")
@@ -1359,9 +1777,10 @@ function showResult(personName) {
     types[selectedType].name;
 
 
-  /*
-    診断された偉人
-  */
+
+  /* =================================================
+     偉人名
+  ================================================= */
 
   document
     .getElementById("result-person")
@@ -1369,33 +1788,58 @@ function showResult(personName) {
     person.name;
 
 
-  /*
-    結果説明
-  */
+
+  /* =================================================
+     偉人画像
+  ================================================= */
+
+  const resultImage =
+    document.getElementById(
+      "result-image"
+    );
+
+
+  resultImage.src =
+    person.image;
+
+
+
+  /* =================================================
+     結果説明
+  ================================================= */
 
   document
-    .getElementById("result-description")
+    .getElementById(
+      "result-description"
+    )
     .innerHTML =
+
     `
-      <h3>あなたの失敗タイプ</h3>
+
+      <h3>
+        あなたの失敗タイプ
+      </h3>
 
       <p>
         ${types[selectedType].description}
       </p>
 
+
       <h3>
-        ${person.name}タイプ
+        似ている偉人キャラ
       </h3>
 
       <p>
         ${person.description}
       </p>
 
+
       <p>
         あなたの失敗の仕方や、
         失敗したときの考え方は、
         この偉人タイプに近いかもしれません。
       </p>
+
     `;
 
 }
@@ -1405,5 +1849,4 @@ function showResult(personName) {
 
 
 </body>
-
 </html>
