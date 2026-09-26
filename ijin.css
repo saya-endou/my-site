@@ -903,18 +903,19 @@ body {
   /* 結果画像 */
 
   .result-person-image {
-  width: 270px;
-  height: 270px;
+  width: 280px;
+  height: 280px;
   margin-top: 15px;
   margin-bottom: 70px;
+
 }
 
 
   .result-person-image img {
 
-    width: 210px;
+    width: 350px;
 
-    height: 210px;
+    height: 350px;
   }
 
 
