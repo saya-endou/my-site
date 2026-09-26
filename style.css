@@ -31,6 +31,13 @@ body {
 
 /* ===== タイトル ===== */
 
+.icon {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 0;
+}
+
 .title-area {
   text-align: center;
   position: relative;
@@ -41,18 +48,29 @@ body {
   margin: 0;
   font-size: 72px;
   line-height: 1.05;
-  font-weight: 900;
-  letter-spacing: -4px;
+  font-weight: 500;
+  letter-spacing: -2px;
 }
 
 .title-area h1 span {
   color: #00B7FF;
+  font-family:
+    "Dela Gothic One",
+    Arial,
+    sans-serif;
 }
 
 .title-area p {
   margin-top: 45px;
   font-size: 20px;
   line-height: 1.6;
+}
+
+.daimei {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 
@@ -146,7 +164,7 @@ body {
   height: 120px;
 
   left: 35px;
-  top: 830px;
+  top: 880px;
 }
 
 
@@ -157,7 +175,7 @@ body {
   height: 120px;
 
   left: 120px;
-  top: 930px;
+  top: 980px;
 }
 
 
@@ -275,7 +293,7 @@ body {
     height: 90px;
 
     left: 50px;
-    top: 630px;
+    top: 690px;
   }
 
   .comment2 {
@@ -283,7 +301,7 @@ body {
     height: 90px;
 
     left: 70px;
-    top: 700px;
+    top: 770px;
   }
 
   .comment p {

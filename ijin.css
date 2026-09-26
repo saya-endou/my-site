@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 
-
 html,
 body {
   margin: 0;
@@ -16,9 +15,7 @@ body {
   min-height: 100%;
 }
 
-
 body {
-
   background: #e7d8dd;
 
   font-family:
@@ -37,7 +34,6 @@ body {
 ===================================================== */
 
 .app-shell {
-
   width: 100%;
   max-width: 390px;
 
@@ -60,9 +56,7 @@ body {
 ===================================================== */
 
 .top-bar {
-
   width: 100%;
-
   height: 38px;
 
   background: #43c4ef;
@@ -74,7 +68,6 @@ body {
 ===================================================== */
 
 .app-main {
-
   width: 100%;
 
   min-height:
@@ -89,7 +82,6 @@ body {
 ===================================================== */
 
 .screen {
-
   width: 100%;
 
   min-height:
@@ -111,7 +103,6 @@ body {
 ===================================================== */
 
 .hidden {
-
   display: none !important;
 }
 
@@ -121,7 +112,6 @@ body {
 ===================================================== */
 
 .start-screen {
-
   display: flex;
 
   justify-content: center;
@@ -131,7 +121,6 @@ body {
 
 
 .start-content {
-
   width: 100%;
 
   padding-top: 48px;
@@ -143,7 +132,6 @@ body {
 ===================================================== */
 
 .app-title {
-
   margin: 0;
 
   font-size: 25px;
@@ -159,7 +147,6 @@ body {
 
 
 .app-title span {
-
   color: #00a9df;
 }
 
@@ -169,7 +156,6 @@ body {
 ===================================================== */
 
 .start-description {
-
   margin:
     23px
     0
@@ -184,7 +170,6 @@ body {
 
 
 .start-description.small {
-
   margin-top: 4px;
 
   font-size: 9px;
@@ -196,7 +181,6 @@ body {
 ===================================================== */
 
 .person-image {
-
   display: flex;
 
   justify-content: center;
@@ -206,7 +190,6 @@ body {
 
 
 .person-image img {
-
   display: block;
 
   max-width: 100%;
@@ -220,7 +203,6 @@ body {
 ===================================================== */
 
 .start-person {
-
   width: 165px;
 
   height: 165px;
@@ -233,7 +215,6 @@ body {
 
 
 .start-person img {
-
   width: 165px;
 
   height: 165px;
@@ -247,7 +228,6 @@ body {
 ===================================================== */
 
 .start-button {
-
   width: 82%;
 
   height: 36px;
@@ -276,10 +256,14 @@ body {
 
 
 .start-button:hover {
-
   transform: scale(1.02);
 
   opacity: 0.9;
+}
+
+
+.start-button:active {
+  transform: scale(0.98);
 }
 
 
@@ -288,7 +272,6 @@ body {
 ===================================================== */
 
 .question-screen {
-
   padding-top: 8px;
 }
 
@@ -298,7 +281,6 @@ body {
 ===================================================== */
 
 .progress-area {
-
   width: 78%;
 
   margin:
@@ -311,7 +293,6 @@ body {
 
 
 .progress-text {
-
   font-size: 8px;
 
   color: #4d433b;
@@ -321,7 +302,6 @@ body {
 
 
 .progress-bar {
-
   width: 100%;
 
   height: 5px;
@@ -335,7 +315,6 @@ body {
 
 
 .progress-fill {
-
   width: 10%;
 
   height: 100%;
@@ -350,7 +329,6 @@ body {
 
 
 .progress-fill.full {
-
   width: 100%;
 }
 
@@ -360,7 +338,6 @@ body {
 ===================================================== */
 
 .question-person-area {
-
   width: 100%;
 
   text-align: center;
@@ -374,7 +351,6 @@ body {
 ===================================================== */
 
 .question {
-
   width: 100%;
 
   margin:
@@ -396,7 +372,6 @@ body {
 ===================================================== */
 
 .question-person {
-
   width: 150px;
 
   height: 120px;
@@ -409,7 +384,6 @@ body {
 
 
 .question-person img {
-
   width: 150px;
 
   height: 120px;
@@ -423,7 +397,6 @@ body {
 ===================================================== */
 
 .answers {
-
   width: 100%;
 
   display: flex;
@@ -441,7 +414,6 @@ body {
 ===================================================== */
 
 .answer-button {
-
   width: 100%;
 
   min-height: 31px;
@@ -482,7 +454,6 @@ body {
 
 
 .answer-button:hover {
-
   background: #fffdf5;
 
   transform:
@@ -491,7 +462,6 @@ body {
 
 
 .answer-button:active {
-
   transform:
     scale(0.98);
 }
@@ -502,7 +472,6 @@ body {
 */
 
 .answer-button .label {
-
   display: none;
 }
 
@@ -511,124 +480,113 @@ body {
    結果画面
 ===================================================== */
 
-.result-screen {
 
+.result-screen {
   text-align: center;
 
-  padding-top: 25px;
+  padding-top: 40px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
 }
 
 
 .result {
-
   width: 100%;
-}
 
+  display: flex;
 
-.result-type {
+  flex-direction: column;
 
-  margin: 0;
-
-  font-size: 10px;
-
-  color: #6c6259;
-}
-
-
-#result-type {
-
-  margin:
-    8px
-    0;
-
-  font-size: 20px;
-
-  color: #00aee9;
-
-  font-weight: 900;
-}
-
-
-.result-person {
-
-  margin:
-    5px
-    0
-    10px;
-
-  font-size: 25px;
-
-  font-weight: 900;
+  align-items: center;
 }
 
 
 /* =====================================================
-   結果人物画像
+   結果画像
 ===================================================== */
 
 .result-person-image {
-
-  width: 150px;
-
-  height: 150px;
+  width: 300px;
+  height: 300px;
 
   margin:
-    0
+    20px
     auto
-    10px;
+    60px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
 }
 
 
 .result-person-image img {
-
-  width: 150px;
-
-  height: 150px;
+  width: 340px;
+  height: 340px;
 
   object-fit: contain;
+
+  display: block;
 }
 
 
 /* =====================================================
-   結果説明
+   シェアボタン
 ===================================================== */
 
-.result-description {
+.share-button {
+  width: 80%;
 
-  background:
-    rgba(255, 255, 255, 0.55);
+  height: 36px;
 
-  border-radius: 15px;
+  margin:
+    5px
+    auto
+    0;
 
-  padding: 15px;
+  border: none;
 
-  text-align: left;
+  border-radius: 30px;
+
+  background: white;
+
+  color: #00a9df;
 
   font-size: 10px;
 
-  line-height: 1.7;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0
+    1px
+    4px
+    rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.15s,
+    background-color 0.15s;
 }
 
 
-.result-description h3 {
+.share-button:hover {
+  background: #fffdf5;
 
-  margin:
-    5px
-    0
-    4px;
-
-  font-size: 12px;
-
-  color: #00aee9;
+  transform:
+    translateY(-1px);
 }
 
 
-.result-description p {
-
-  margin:
-    5px
-    0
-    12px;
+.share-button:active {
+  transform:
+    scale(0.98);
 }
 
 
@@ -637,13 +595,12 @@ body {
 ===================================================== */
 
 .retry-button {
-
   width: 80%;
 
-  height: 35px;
+  height: 36px;
 
   margin:
-    15px
+    10px
     auto
     0;
 
@@ -660,6 +617,24 @@ body {
   font-weight: bold;
 
   cursor: pointer;
+
+  transition:
+    transform 0.15s,
+    opacity 0.15s;
+}
+
+
+.retry-button:hover {
+  transform:
+    translateY(-1px);
+
+  opacity: 0.9;
+}
+
+
+.retry-button:active {
+  transform:
+    scale(0.98);
 }
 
 
@@ -668,7 +643,6 @@ body {
 ===================================================== */
 
 .bottom-nav {
-
   position: fixed;
 
   bottom: 0;
@@ -708,6 +682,7 @@ body {
   gap: 3px;
 }
 
+
 .list-icon i {
   display: block;
 
@@ -721,6 +696,7 @@ body {
 
   position: relative;
 }
+
 
 .list-icon i::before {
   content: "";
@@ -740,8 +716,8 @@ body {
   background: currentColor;
 }
 
-.nav-item {
 
+.nav-item {
   width: 40px;
 
   height: 40px;
@@ -765,7 +741,6 @@ body {
 
 
 .nav-icon {
-
   display: flex;
 
   justify-content: center;
@@ -774,19 +749,35 @@ body {
 
   height: 100%;
 }
-/* =========================
+
+
+/* =====================================================
    パレット
-========================= */
+===================================================== */
 
 .palette-icon {
-  img {
-  filter: brightness(0) invert(1);
-}
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
 }
 
-/* =========================
+
+.palette-icon img {
+  width: 22px;
+
+  height: 22px;
+
+  filter:
+    brightness(0)
+    invert(1);
+}
+
+
+/* =====================================================
    中央の投稿ボタン
-========================= */
+===================================================== */
 
 .post-button {
   width: 62px;
@@ -809,7 +800,9 @@ body {
   cursor: pointer;
 
   box-shadow:
-    0 3px 18px
+    0
+    3px
+    18px
     rgba(0, 0, 0, 0.18);
 
   display: flex;
@@ -818,7 +811,6 @@ body {
 
   justify-content: center;
 }
-
 
 
 /* =====================================================
@@ -905,6 +897,33 @@ body {
   .bottom-nav {
 
     width: 100%;
+  }
+
+
+  /* 結果画像 */
+
+  .result-person-image {
+  width: 270px;
+  height: 270px;
+  margin-top: 15px;
+  margin-bottom: 70px;
+}
+
+
+  .result-person-image img {
+
+    width: 210px;
+
+    height: 210px;
+  }
+
+
+  /* 結果ボタン */
+
+  .share-button,
+  .retry-button {
+
+    width: 85%;
   }
 
 }
