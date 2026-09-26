@@ -62,7 +62,7 @@ body {
   position: absolute;
 
   right: -40px;
-  top: 450px;       /* 少し上に移動 */
+  top: 400px;       /* 少し上に移動 */
 
   width: 360px;
 
@@ -248,7 +248,7 @@ body {
 .einstein-area {
   width: 400px;
   right: -90px;
-  top: 300px;
+  top: 250px;
 }
 
 
@@ -275,7 +275,7 @@ body {
     height: 90px;
 
     left: 50px;
-    top: 680px;
+    top: 630px;
   }
 
   .comment2 {
@@ -283,7 +283,7 @@ body {
     height: 90px;
 
     left: 70px;
-    top: 760px;
+    top: 700px;
   }
 
   .comment p {
