@@ -64,7 +64,7 @@ body {
   right: -40px;
   top: 400px;       /* 少し上に移動 */
 
-  width: 360px;
+  width: 380px;
 
   z-index: 2;
 }
@@ -143,10 +143,10 @@ body {
 
 .comment1 {
   width: 380px;
-  height: 145px;
+  height: 120px;
 
-  left: 55px;
-  top: 940px;
+  left: 35px;
+  top: 830px;
 }
 
 
@@ -154,10 +154,10 @@ body {
 
 .comment2 {
   width: 380px;
-  height: 145px;
+  height: 120px;
 
-  left: 140px;
-  top: 1050px;
+  left: 120px;
+  top: 930px;
 }
 
 
