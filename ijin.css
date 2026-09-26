@@ -1,0 +1,855 @@
+/* =====================================================
+   全体
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100%;
+}
+
+
+body {
+
+  background: #e7d8dd;
+
+  font-family:
+    Arial,
+    "Noto Sans JP",
+    "Hiragino Kaku Gothic ProN",
+    Meiryo,
+    sans-serif;
+
+  color: #30251f;
+}
+
+
+/* =====================================================
+   アプリ本体
+===================================================== */
+
+.app-shell {
+
+  width: 100%;
+  max-width: 390px;
+
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  background: #f8dda9;
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding-bottom: 45px;
+}
+
+
+/* =====================================================
+   上部の水色バー
+===================================================== */
+
+.top-bar {
+
+  width: 100%;
+
+  height: 38px;
+
+  background: #43c4ef;
+}
+
+
+/* =====================================================
+   メイン
+===================================================== */
+
+.app-main {
+
+  width: 100%;
+
+  min-height:
+    calc(100vh - 83px);
+
+  position: relative;
+}
+
+
+/* =====================================================
+   画面共通
+===================================================== */
+
+.screen {
+
+  width: 100%;
+
+  min-height:
+    calc(100vh - 83px);
+
+  background: #f8dda9;
+
+  padding:
+    18px
+    16px
+    30px;
+
+  position: relative;
+}
+
+
+/* =====================================================
+   非表示
+===================================================== */
+
+.hidden {
+
+  display: none !important;
+}
+
+
+/* =====================================================
+   スタート画面
+===================================================== */
+
+.start-screen {
+
+  display: flex;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+.start-content {
+
+  width: 100%;
+
+  padding-top: 48px;
+}
+
+
+/* =====================================================
+   タイトル
+===================================================== */
+
+.app-title {
+
+  margin: 0;
+
+  font-size: 25px;
+
+  line-height: 1.05;
+
+  font-weight: 900;
+
+  letter-spacing: -1.5px;
+
+  color: #30251f;
+}
+
+
+.app-title span {
+
+  color: #00a9df;
+}
+
+
+/* =====================================================
+   説明
+===================================================== */
+
+.start-description {
+
+  margin:
+    23px
+    0
+    0;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+
+  font-weight: 600;
+}
+
+
+.start-description.small {
+
+  margin-top: 4px;
+
+  font-size: 9px;
+}
+
+
+/* =====================================================
+   人物画像
+===================================================== */
+
+.person-image {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+
+.person-image img {
+
+  display: block;
+
+  max-width: 100%;
+
+  height: auto;
+}
+
+
+/* =====================================================
+   スタート人物
+===================================================== */
+
+.start-person {
+
+  width: 165px;
+
+  height: 165px;
+
+  margin:
+    5px
+    auto
+    4px;
+}
+
+
+.start-person img {
+
+  width: 165px;
+
+  height: 165px;
+
+  object-fit: contain;
+}
+
+
+/* =====================================================
+   スタートボタン
+===================================================== */
+
+.start-button {
+
+  width: 82%;
+
+  height: 36px;
+
+  margin:
+    4px
+    auto
+    0;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background: #00b7ef;
+
+  color: white;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.start-button:hover {
+
+  transform: scale(1.02);
+
+  opacity: 0.9;
+}
+
+
+/* =====================================================
+   質問画面
+===================================================== */
+
+.question-screen {
+
+  padding-top: 8px;
+}
+
+
+/* =====================================================
+   進捗
+===================================================== */
+
+.progress-area {
+
+  width: 78%;
+
+  margin:
+    0
+    auto
+    13px;
+
+  text-align: center;
+}
+
+
+.progress-text {
+
+  font-size: 8px;
+
+  color: #4d433b;
+
+  margin-bottom: 6px;
+}
+
+
+.progress-bar {
+
+  width: 100%;
+
+  height: 5px;
+
+  background: #d1c39f;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+
+.progress-fill {
+
+  width: 10%;
+
+  height: 100%;
+
+  background: #00aee9;
+
+  border-radius: 10px;
+
+  transition:
+    width 0.3s ease;
+}
+
+
+.progress-fill.full {
+
+  width: 100%;
+}
+
+
+/* =====================================================
+   質問エリア
+===================================================== */
+
+.question-person-area {
+
+  width: 100%;
+
+  text-align: center;
+
+  position: relative;
+}
+
+
+/* =====================================================
+   質問文
+===================================================== */
+
+.question {
+
+  width: 100%;
+
+  margin:
+    0
+    auto;
+
+  font-size: 13px;
+
+  line-height: 1.45;
+
+  font-weight: 900;
+
+  white-space: pre-line;
+}
+
+
+/* =====================================================
+   質問人物
+===================================================== */
+
+.question-person {
+
+  width: 150px;
+
+  height: 120px;
+
+  margin:
+    4px
+    auto
+    4px;
+}
+
+
+.question-person img {
+
+  width: 150px;
+
+  height: 120px;
+
+  object-fit: contain;
+}
+
+
+/* =====================================================
+   回答一覧
+===================================================== */
+
+.answers {
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  margin-top: 5px;
+}
+
+
+/* =====================================================
+   回答ボタン
+===================================================== */
+
+.answer-button {
+
+  width: 100%;
+
+  min-height: 31px;
+
+  padding:
+    7px
+    13px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background: white;
+
+  color: #3b3028;
+
+  font-family:
+    Arial,
+    "Noto Sans JP",
+    sans-serif;
+
+  font-size: 9px;
+
+  cursor: pointer;
+
+  text-align: center;
+
+  box-shadow:
+    0
+    1px
+    3px
+    rgba(0, 0, 0, 0.03);
+
+  transition:
+    transform 0.15s,
+    background-color 0.15s;
+}
+
+
+.answer-button:hover {
+
+  background: #fffdf5;
+
+  transform:
+    translateY(-1px);
+}
+
+
+.answer-button:active {
+
+  transform:
+    scale(0.98);
+}
+
+
+/*
+  A/B/C/Dの文字を使わない
+*/
+
+.answer-button .label {
+
+  display: none;
+}
+
+
+/* =====================================================
+   結果画面
+===================================================== */
+
+.result-screen {
+
+  text-align: center;
+
+  padding-top: 25px;
+}
+
+
+.result {
+
+  width: 100%;
+}
+
+
+.result-type {
+
+  margin: 0;
+
+  font-size: 10px;
+
+  color: #6c6259;
+}
+
+
+#result-type {
+
+  margin:
+    8px
+    0;
+
+  font-size: 20px;
+
+  color: #00aee9;
+
+  font-weight: 900;
+}
+
+
+.result-person {
+
+  margin:
+    5px
+    0
+    10px;
+
+  font-size: 25px;
+
+  font-weight: 900;
+}
+
+
+/* =====================================================
+   結果人物画像
+===================================================== */
+
+.result-person-image {
+
+  width: 150px;
+
+  height: 150px;
+
+  margin:
+    0
+    auto
+    10px;
+}
+
+
+.result-person-image img {
+
+  width: 150px;
+
+  height: 150px;
+
+  object-fit: contain;
+}
+
+
+/* =====================================================
+   結果説明
+===================================================== */
+
+.result-description {
+
+  background:
+    rgba(255, 255, 255, 0.55);
+
+  border-radius: 15px;
+
+  padding: 15px;
+
+  text-align: left;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+
+.result-description h3 {
+
+  margin:
+    5px
+    0
+    4px;
+
+  font-size: 12px;
+
+  color: #00aee9;
+}
+
+
+.result-description p {
+
+  margin:
+    5px
+    0
+    12px;
+}
+
+
+/* =====================================================
+   もう一度診断
+===================================================== */
+
+.retry-button {
+
+  width: 80%;
+
+  height: 35px;
+
+  margin:
+    15px
+    auto
+    0;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background: #00b7ef;
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   下部ナビゲーション
+===================================================== */
+
+.bottom-nav {
+
+  position: fixed;
+
+  bottom: 0;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  width: 100%;
+
+  max-width: 390px;
+
+  height: 45px;
+
+  background: #00b7ef;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-around;
+
+  z-index: 100;
+}
+
+
+/* =====================================================
+   ナビゲーションボタン
+===================================================== */
+
+.nav-item {
+
+  width: 40px;
+
+  height: 40px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #007ba8;
+
+  font-size: 17px;
+
+  cursor: pointer;
+}
+
+
+.nav-icon {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  height: 100%;
+}
+
+
+/* =====================================================
+   中央鉛筆ボタン
+===================================================== */
+
+.nav-pencil {
+
+  width: 40px;
+
+  height: 40px;
+
+  margin-top: -20px;
+
+  border:
+    3px solid
+    #00b7ef;
+
+  border-radius: 50%;
+
+  background: white;
+
+  color: #00b7ef;
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+  box-shadow:
+    0
+    2px
+    7px
+    rgba(0, 0, 0, 0.15);
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   PC表示
+===================================================== */
+
+@media (min-width: 601px) {
+
+  body {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    padding-top: 20px;
+  }
+
+
+  .app-shell {
+
+    width: 390px;
+
+    min-height: 780px;
+
+    box-shadow:
+      0
+      5px
+      30px
+      rgba(0, 0, 0, 0.15);
+  }
+
+
+  .screen {
+
+    min-height: 697px;
+  }
+
+
+  .bottom-nav {
+
+    width: 390px;
+  }
+
+}
+
+
+/* =====================================================
+   スマホ
+===================================================== */
+
+@media (max-width: 600px) {
+
+  body {
+
+    background: #f8dda9;
+  }
+
+
+  .app-shell {
+
+    width: 100%;
+
+    min-height: 100vh;
+  }
+
+
+  .top-bar {
+
+    height: 38px;
+  }
+
+
+  .screen {
+
+    min-height:
+      calc(100vh - 83px);
+  }
+
+
+  .bottom-nav {
+
+    width: 100%;
+  }
+
+}
