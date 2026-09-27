@@ -134,20 +134,29 @@ body {
 .app-title {
   margin: 0;
 
-  font-size: 25px;
+  font-size: 40px;
 
   line-height: 1.05;
 
-  font-weight: 900;
+  font-weight: 300;
 
   letter-spacing: -1.5px;
 
   color: #30251f;
+
+  font-family:
+    "Dela Gothic One",
+    Arial,
+    sans-serif;
 }
 
 
 .app-title span {
   color: #00a9df;
+  font-family:
+    "Dela Gothic One",
+    Arial,
+    sans-serif;
 }
 
 
