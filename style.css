@@ -123,9 +123,13 @@ body {
   color: white;
 
   font-size: 46px;
-  font-weight: 900;
+  font-weight: 150;
 
   text-shadow: 5px 5px 0 rgba(0, 130, 190, 0.5);
+  font-family:
+    "Dela Gothic One",
+    Arial,
+    sans-serif;
 }
 
 
@@ -153,7 +157,12 @@ body {
   color: #00B7FF;
 
   font-size: 30px;
-  font-weight: 900;
+  font-weight: 200;
+
+    font-family:
+    "Dela Gothic One",
+    Arial,
+    sans-serif;
 }
 
 
